@@ -1,21 +1,11 @@
 {
   "includeInputsFields": [
-    {
-      "field": "name",
-      "title": "Option"
-    },
-    {
-      "field": "defaultValue",
-      "title": "Default Value"
-    },
-    {
-      "field": "required",
-      "title": "Required"
-    },
-    {
-      "field": "helpMarkDown",
-      "title": "Help"
-    }
+    { "field": "name", "title": "Option", "align": "left" },
+    { "field": "defaultValue", "title": "Default Value", "align": "left" },
+    { "field": "required", "title": "Required", "align": "center" },
+    { "field": "helpMarkDown", "title": "Help", "align": "left" },
+    { "field": "visibleRule", "title": "Visible", "align": "left" },
+    { "field": "options", "title": "Options", "align": "left" }
   ],
   "requiredOptions": {
     "false": ":x:",

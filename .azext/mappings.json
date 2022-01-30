@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "comments": "../tasks/pull-request-comments/task.json",
+    "description": "../tasks/pull-request-description/task.json",
+    "status": "../tasks/pull-request-status/task.json",
+    "tags": "../tasks/pull-request-tags/task.json"
+  }
+}

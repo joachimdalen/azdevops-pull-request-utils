@@ -1,0 +1,433 @@
+[
+  {
+    "publishDate": "2021-12-18",
+    "version": "0.5.4",
+    "modules": [
+      {
+        "name": "PullRequestDescription",
+        "version": "0.2.4",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestComments",
+        "version": "0.2.4",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestStatus",
+        "version": "0.0.7",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestTags",
+        "version": "0.1.12",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "publishDate": "2021-10-06",
+    "version": "0.5.3",
+    "changes": [
+      {
+        "description": "Enabled Azure DevOps Server",
+        "type": "maint"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PullRequestDescription",
+        "version": "0.2.3",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Update task metadata",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestComments",
+        "version": "0.2.3",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Update task metadata",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestStatus",
+        "version": "0.0.6",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Update task metadata",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestTags",
+        "version": "0.1.11",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Update task metadata",
+            "type": "maint"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "publishDate": "2021-07-15",
+    "version": "0.5.2",
+    "modules": [
+      {
+        "name": "PullRequestDescription",
+        "version": "0.2.2",
+        "changes": [
+          {
+            "description": "Update task metadata",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestComments",
+        "version": "0.2.2",
+        "changes": [
+          {
+            "description": "Update task metadata",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestStatus",
+        "version": "0.0.5",
+        "changes": [
+          {
+            "description": "Update task metadata",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestTags",
+        "version": "0.1.10",
+        "changes": [
+          {
+            "description": "Update task metadata",
+            "type": "maint"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "publishDate": "2021-07-03",
+    "version": "0.5.1",
+    "modules": [
+      {
+        "name": "PullRequestDescription",
+        "version": "0.2.1",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Fixed wrong statuses being listed in the documentation",
+            "type": "docs"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestComments",
+        "version": "0.2.1",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestStatus",
+        "version": "0.0.4",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestTags",
+        "version": "0.1.9",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "publishDate": "2021-02-20",
+    "version": "0.5.0",
+    "modules": [
+      {
+        "name": "PullRequestDescription",
+        "version": "0.2.0",
+        "changes": [
+          {
+            "description": "Added option `view`",
+            "type": "feature"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "publishDate": "2021-02-17",
+    "version": "0.4.3",
+    "modules": [
+      {
+        "name": "PullRequestDescription",
+        "version": "0.1.2",
+        "changes": [
+          {
+            "description": "Added option `useDefined`",
+            "type": "feature"
+          },
+          {
+            "description": "Added option `pullRequestId`",
+            "type": "feature"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestTags",
+        "version": "0.1.8",
+        "changes": [
+          {
+            "description": "Added option `useDefined`",
+            "type": "feature"
+          },
+          {
+            "description": "Added option `pullRequestId`",
+            "type": "feature"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "publishDate": "2021-01-11",
+    "version": "0.4.2",
+    "modules": [
+      {
+        "name": "PullRequestDescription",
+        "version": "0.1.1",
+        "changes": [
+          {
+            "description": "Added PullRequestDescription, see documentation for more info.",
+            "type": "feature"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestComments",
+        "version": "0.2.0",
+        "changes": [
+          {
+            "description": "Added option `commentId`",
+            "type": "feature"
+          },
+          {
+            "description": "Added option `action`, you can now create or update comments.",
+            "type": "feature"
+          },
+          {
+            "description": "Fixed `skipIfCommentExists` not working properly. It was dumb previously and only checked the content of the comment. It is now updated to add a hidden identifier to the comment to properly identify if it exists. If you use multiple tasks, ensure `commentId` is set as a unique value for each task.",
+            "type": "fix"
+          },
+          {
+            "description": "Fixed some configuration options not showing in the editor",
+            "type": "fix"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "publishDate": "2021-01-11",
+    "version": "0.2.2",
+    "modules": [
+      {
+        "name": "PullRequestTags",
+        "version": "0.1.7",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestComments",
+        "version": "0.1.12",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestStatus",
+        "version": "0.0.3",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "publishDate": "2020-11-22",
+    "version": "0.2.1",
+    "modules": [
+      {
+        "name": "PullRequestComments",
+        "version": "0.1.11",
+        "changes": [
+          {
+            "description": "Clarified some minor details",
+            "type": "docs"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestStatus",
+        "version": "0.0.2",
+        "changes": [
+          {
+            "description": "Clarified some minor details",
+            "type": "docs"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "publishDate": "2020-11-22",
+    "version": "0.2.0",
+    "modules": [
+      {
+        "name": "PullRequestStatus",
+        "version": "0.0.2",
+        "changes": [
+          {
+            "description": "Added PullRequestStatus. Create custom statuses that can be used in policies. See `README` for more information.",
+            "type": "feature"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestComments",
+        "version": "0.1.11",
+        "changes": [
+          {
+            "description": "Updated docs",
+            "type": "docs"
+          },
+          {
+            "description": "Updated dependencies",
+            "type": "maint"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestTags",
+        "version": "0.1.6",
+        "changes": [
+          {
+            "description": "Updated docs",
+            "type": "docs"
+          },
+          {
+            "description": "Updated dependencies",
+            "type": "maint"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "publishDate": "2020-09-24",
+    "version": "0.1.15",
+    "sections": {
+      "summary": [
+        {
+          "type": "list-item",
+          "content": "Fixed readme images"
+        }
+      ]
+    }
+  },
+  {
+    "publishDate": "2020-09-24",
+    "version": "0.1.14",
+    "sections": {
+      "summary": [
+        {
+          "type": "list-item",
+          "content": "Published extension to preview"
+        }
+      ]
+    }
+  }
+]

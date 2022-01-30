@@ -1,0 +1,84 @@
+{
+  "repository": "joachimdalen/azdevops-pull-request-utils",
+  "changelogTitle": {
+    "size": "h1",
+    "format": "Changelog"
+  },
+  "releaseTitleFormat": {
+    "size": "h2",
+    "format": "{{version}} ({{publishDate}})"
+  },
+  "moduleTitleFormat": {
+    "size": "h4",
+    "format": "`{{name}}@{{version}}`"
+  },
+  "moduleChangesTitle": {
+    "size": "h3",
+    "format": ":package: Module changes"
+  },
+  "typeSize": "h3",
+  "typeMapping": {
+    "feature": ":rocket: Features ({{changeCount}})",
+    "fix": ":bug: Fixes ({{changeCount}})",
+    "tests": ":test_tube: Tests ({{changeCount}})",
+    "other": ":speech_balloon: Other ({{changeCount}})",
+    "docs": ":memo: Documentation ({{changeCount}})",
+    "maint": ":hammer_and_wrench: Maintenance ({{changeCount}})",
+    "enhancement": ":mega: Enhancements ({{changeCount}})"
+  },
+  "typeResourcePrefixMapping": {
+    "feature": {
+      "issue": "Suggested in",
+      "pullRequest": "Added in"
+    },
+    "fix": {
+      "issue": "Reported in",
+      "pullRequest": "Fixed in"
+    },
+    "docs": {
+      "issue": "Changed needed",
+      "pullRequest": "Changed in"
+    },
+    "maint": {
+      "pullRequest": "Changed in"
+    },
+    "enhancement": {
+      "issue": "Suggested in",
+      "pullRequest": "Improved in"
+    }
+  },
+  "sections": {
+    "summary": {
+      "title": {
+        "size": "h4",
+        "format": ":speech_balloon: Summary"
+      }
+    }
+  },
+  "attributionTitleFormat": {
+    "size": "h2",
+    "format": ":star2: Contributors"
+  },
+  "attributionSubTitle": {
+    "format": "Thank you to the following for contributing to the latest release"
+  },
+  "attributionLinkTextFormat": {
+    "format": "@{{ghUsername}}"
+  },
+  "knownAuthors": ["joachimdalen"],
+  "useDescriptiveIssues": true,
+  "useDescriptivePullRequests": true,
+  "replaceEmojis": {
+    "types": true,
+    "changelogTitle": true,
+    "releaseTitle": true,
+    "moduleTitle": true,
+    "attributionTitle": true,
+    "attributionSubTitle": true,
+    "moduleChangesTitle": true,
+    "githubIssues": false,
+    "githubPullRequests": false,
+    "sectionContent": true,
+    "sectionTitle": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "pull-request-comments",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "prebuild": "rimraf ./dist",
+    "build": "tsc -p .",
+    "postbuild": "webpack --config webpack.config",
+    "test:integration": "mocha dist/tests/_suite.js",
+    "test:integration:coverage": "mocha dist/tests/_suite.js --reporter xunit --reporter-option output=ResultsFile.xml",
+    "lint": "eslint . --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx",
+    "lint:fix": "eslint --fix . --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx",
+    "clean": "rimraf ./dist"
+  },
+  "dependencies": {
+    "azure-devops-node-api": "^10.2.2",
+    "azure-pipelines-task-lib": "^3.1.10",
+    "sync-request": "^6.1.0"
+  }
+}

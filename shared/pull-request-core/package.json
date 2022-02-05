@@ -1,0 +1,12 @@
+{
+  "name": "pull-request-core",
+  "version": "0.0.1",
+  "description": "Shared code for all pull request utils tasks",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -d"
+  }
+}

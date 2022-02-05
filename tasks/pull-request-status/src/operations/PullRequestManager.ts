@@ -4,10 +4,7 @@ import {
   GitStatusState
 } from 'azure-devops-node-api/interfaces/GitInterfaces';
 import * as tl from 'azure-pipelines-task-lib/task';
-
-import { getPullRequestId } from '../utils/PullRequestUtils';
-import { getWebApi } from '../utils/WebApi';
-
+import { getPullRequestId,getWebApi } from 'pull-request-core';
 export class PullRequestManager {
   public async manageStatus(): Promise<void> {
     const gitApi = await getWebApi().getGitApi();

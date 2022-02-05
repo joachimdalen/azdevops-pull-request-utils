@@ -1,9 +1,6 @@
 import { WebApiCreateTagRequestData } from 'azure-devops-node-api/interfaces/CoreInterfaces';
 import * as tl from 'azure-pipelines-task-lib/task';
-
-import { getPullRequestId } from '../utils/PullRequestUtils';
-import VariableResolver from '../utils/VariableResolver';
-import { getWebApi } from '../utils/WebApi';
+import { getPullRequestId, getWebApi, VariableResolver } from 'pull-request-core';
 
 export class PullRequestManager {
   public async assign(): Promise<void> {

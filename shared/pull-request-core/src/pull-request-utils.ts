@@ -1,6 +1,6 @@
 import * as tl from 'azure-pipelines-task-lib/task';
 
-import VariableResolver from './VariableResolver';
+import { VariableResolver } from './variable-resolver';
 
 export function getPullRequestId(
   enableAlternative?: boolean,

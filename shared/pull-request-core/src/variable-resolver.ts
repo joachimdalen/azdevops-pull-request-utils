@@ -1,6 +1,6 @@
 import * as tl from 'azure-pipelines-task-lib/task';
 
-export default class VariableResolver {
+export class VariableResolver {
   private static readonly regexp = /\$\(([^)]+)\)/g;
 
   public static resolveVariables(origValue: string): string {

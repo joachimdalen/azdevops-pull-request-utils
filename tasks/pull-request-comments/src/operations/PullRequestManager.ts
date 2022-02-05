@@ -5,12 +5,8 @@ import {
   GitPullRequestCommentThread
 } from 'azure-devops-node-api/interfaces/GitInterfaces';
 import * as tl from 'azure-pipelines-task-lib/task';
-import { stat } from 'fs';
 import { EOL } from 'os';
-
-import { getPullRequestId } from '../utils/PullRequestUtils';
-import VariableResolver from '../utils/VariableResolver';
-import { getWebApi } from '../utils/WebApi';
+import { getPullRequestId, getWebApi, VariableResolver } from 'pull-request-core';
 
 export interface ExistingComment {
   thread: GitPullRequestCommentThread;

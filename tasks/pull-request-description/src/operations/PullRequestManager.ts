@@ -1,10 +1,7 @@
 import { GitPullRequest } from 'azure-devops-node-api/interfaces/GitInterfaces';
 import * as tl from 'azure-pipelines-task-lib/task';
 import { EOL } from 'os';
-
-import { getPullRequestId } from '../utils/PullRequestUtils';
-import VariableResolver from '../utils/VariableResolver';
-import { getWebApi } from '../utils/WebApi';
+import { getPullRequestId, getWebApi, VariableResolver } from 'pull-request-core';
 
 export class PullRequestManager {
   public async process(): Promise<void> {
@@ -41,7 +38,8 @@ export class PullRequestManager {
     const outputVariable = tl.getInput('outputVariable', true);
     const isOutput = tl.getBoolInput('isOutput');
     const stripIdentifiers = tl.getBoolInput('stripIdentifiers');
-    const matchRegex = /^\[\/\/\]: # \(pull-request-description-updater - Anything below this line will be deleted on next pipeline run\. Do not change this line\. Keep an empty line above and below\)$/m;
+    const matchRegex =
+      /^\[\/\/\]: # \(pull-request-description-updater - Anything below this line will be deleted on next pipeline run\. Do not change this line\. Keep an empty line above and below\)$/m;
 
     let content = pullRequest?.description;
 
@@ -91,7 +89,8 @@ export class PullRequestManager {
     const currentPr = await this.getPrDescription(pullRequestId);
     const oldDescription = currentPr.description;
 
-    const matchRegex = /^\[\/\/\]: # \(pull-request-description-updater - Anything below this line will be deleted on next pipeline run\. Do not change this line\. Keep an empty line above and below\)$/m;
+    const matchRegex =
+      /^\[\/\/\]: # \(pull-request-description-updater - Anything below this line will be deleted on next pipeline run\. Do not change this line\. Keep an empty line above and below\)$/m;
     const commentSplit =
       '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)';
 

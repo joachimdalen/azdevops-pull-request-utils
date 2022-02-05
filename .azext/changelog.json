@@ -1,5 +1,21 @@
 [
   {
+    "publishDate": "2022-02-XX",
+    "version": "0.6.0",
+    "modules": [
+      {
+        "name": "pull-request-core",
+        "version": "0.0.1",
+        "changes": [
+          {
+            "description": "Added module with shared code",
+            "type": "maint"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "publishDate": "2021-12-18",
     "version": "0.5.4",
     "modules": [

@@ -10,3 +10,4 @@ dist/
 .taskkey
 ResultsFile.xml
 !ci/buildDocs.js
+README-GEN.md

@@ -4,11 +4,30 @@
     { "field": "defaultValue", "title": "Default Value", "align": "left" },
     { "field": "required", "title": "Required", "align": "center" },
     { "field": "helpMarkDown", "title": "Help", "align": "left" },
-    { "field": "visibleRule", "title": "Visible", "align": "left" },
     { "field": "options", "title": "Options", "align": "left" }
   ],
   "requiredOptions": {
     "false": ":x:",
     "true": ":white_check_mark:"
+  },
+  "partials": {
+    "comments-single": {
+      "file": "../tasks/pull-request-comments/docs/examples/posting-a-comment.md"
+    },
+    "comments-markdown": {
+      "file": "../tasks/pull-request-comments/docs/examples/posting-a-markdown-comment.md"
+    },
+    "comments-multiple": {
+      "file": "../tasks/pull-request-comments/docs/examples/posting-multiple-comments.md"
+    },
+    "description-append": {
+      "file": "../tasks/pull-request-description/docs/examples/append-content.md"
+    },
+    "description-replace": {
+      "file": "../tasks/pull-request-description/docs/examples/replace-content.md"
+    },
+    "description-set-variable": {
+      "file": "../tasks/pull-request-description/docs/examples/set-variable.md"
+    }
   }
 }

@@ -28,6 +28,7 @@
       "label": "Action",
       "defaultValue": "append",
       "required": true,
+      "helpMarkDown": "The action to perform",
       "options": {
         "append": "Append",
         "replace": "Replace",
@@ -39,13 +40,13 @@
       "required": true,
       "type": "multiLine",
       "label": "Content",
-      "helpMarkDown": "The content to append or replace original description with. For Markdown syntax, see [Syntax guidance for basic Markdown usage](http://go.microsoft.com/fwlink/?LinkId=823918)",
+      "helpMarkDown": "The content to append or replace original description with. Required when action is `append` or `replace`. For Markdown syntax, see [Syntax guidance for basic Markdown usage](http://go.microsoft.com/fwlink/?LinkId=823918) **Supports usage of variables.**",
       "visibleRule": "action != view"
     },
     {
       "name": "useDefined",
       "label": "Use defined id",
-      "helpMarkDown": "If set, overrides the value from `System.PullRequest.PullRequestId`",
+      "helpMarkDown": "Use the pre-defined id for the pull request. If set, overrides the value from `System.PullRequest.PullRequestId`. Default: `false`",
       "defaultValue": false,
       "type": "boolean",
       "groupName": "advanced"
@@ -63,7 +64,7 @@
       "name": "outputVariable",
       "type": "string",
       "label": "Output Variable",
-      "helpMarkDown": "The name of the output variable containing the description",
+      "helpMarkDown": "The name of the output variable to write the description to. Default `PullRequest.DescriptionContent`. Applies to actions `view`",
       "defaultValue": "PullRequest.DescriptionContent",
       "visibleRule": "action = view"
     },
@@ -71,14 +72,14 @@
       "name": "isOutput",
       "type": "boolean",
       "label": "Is output",
-      "helpMarkDown": "If set, `outputVariable` is set as output and accessible from other jobs",
+      "helpMarkDown": "If set, `outputVariable` is set as output and accessible from other jobs. Applies to actions `view`",
       "visibleRule": "action = view"
     },
     {
       "name": "stripIdentifiers",
       "type": "boolean",
       "label": "Strip Identifiers",
-      "helpMarkDown": "Will strip internal identifers used by the task",
+      "helpMarkDown": "Strip internal modifiers before setting variable. Applies to actions `view`",
       "visibleRule": "action = view",
       "defaultValue": false
     }

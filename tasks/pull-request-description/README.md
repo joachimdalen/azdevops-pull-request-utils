@@ -1,32 +1,42 @@
-# PullRequestDescription@[x]
+# Pull Request Description
 
 ---
 
-**Update pull request descriptions during pipeline runs.**
+**Update pull request descriptions during pipeline runs**
 
 ---
 
-# ⚙️ Options
+## Options
 
-- `action`: The action to perform. One of:
+### Example
 
-  - `append` (default)
-  - `replace`
-  - `view` (Write description to variable)
+```yaml
+- task: PullRequestDescription@0
+  inputs:
+    action: append #The action to perform
+    content: #The content to append or replace original description with. Required when action is `append` or `replace`. For Markdown syntax, see [Syntax guidance for basic Markdown usage](http://go.microsoft.com/fwlink/?LinkId=823918) **Supports usage of variables.**
+    useDefined: false #Use the pre-defined id for the pull request. If set, overrides the value from `System.PullRequest.PullRequestId`. Default: `false`
+    pullRequestId: $(System.PullRequest.PullRequestId) #If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId`
+    outputVariable: PullRequest.DescriptionContent #The name of the output variable to write the description to. Default `PullRequest.DescriptionContent`. Applies to actions `view`
+    isOutput: #If set, `outputVariable` is set as output and accessible from other jobs. Applies to actions `view`
+    stripIdentifiers: false #Strip internal modifiers before setting variable. Applies to actions `view`
 
-- `content`: The content to append or replace original description with. Required when action is `append` or `replace`. For Markdown syntax, see [Syntax guidance for basic Markdown usage](http://go.microsoft.com/fwlink/?LinkId=823918) **Supports usage of variables.**
+```
 
-- `useDefined`: Use the pre-defined id for the pull request. If set, overrides the value from `System.PullRequest.PullRequestId`. Default: `false`
+### All Options
 
-- `pullRequestId`: If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId`
+| Option             | Default Value                         | Required | Help                                                                                                                                                                                                                                                           | Options                     |
+| :----------------- | :------------------------------------ | :------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------- |
+| `action`           | `append`                              |    ✅    | The action to perform                                                                                                                                                                                                                                          | `append`, `replace`, `view` |
+| `content`          | --                                    |    ✅    | The content to append or replace original description with. Required when action is `append` or `replace`. For Markdown syntax, see [Syntax guidance for basic Markdown usage](http://go.microsoft.com/fwlink/?LinkId=823918) **Supports usage of variables.** | --                          |
+| `useDefined`       | `false`                               |    ❌    | Use the pre-defined id for the pull request. If set, overrides the value from `System.PullRequest.PullRequestId`. Default: `false`                                                                                                                             | --                          |
+| `pullRequestId`    | `$(System.PullRequest.PullRequestId)` |    ❌    | If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId`                                                                                           | --                          |
+| `outputVariable`   | `PullRequest.DescriptionContent`      |    ❌    | The name of the output variable to write the description to. Default `PullRequest.DescriptionContent`. Applies to actions `view`                                                                                                                               | --                          |
+| `isOutput`         | --                                    |    ❌    | If set, `outputVariable` is set as output and accessible from other jobs. Applies to actions `view`                                                                                                                                                            | --                          |
+| `stripIdentifiers` | `false`                               |    ❌    | Strip internal modifiers before setting variable. Applies to actions `view`                                                                                                                                                                                    | --                          |
 
-- `outputVariable`: The name of the output variable to write the description to. Default `PullRequest.DescriptionContent`. Applies to actions `view`
 
-- `isOutput`: If set, `outputVariable` is set as output and accessible from other jobs. Applies to actions `view`
-
-- `stripIdentifiers`: Strip internal modifiers before setting variable. Applies to actions `view`
-
-# ❓ Examples
+## Examples
 
 ## Append content
 
@@ -42,6 +52,7 @@ steps:
 
 ---
 
+
 ## Replace content
 
 The following configuration will replace the entire pull request description on each run.
@@ -55,6 +66,7 @@ steps:
 ```
 
 ---
+
 
 ## Set as variable
 
@@ -75,6 +87,7 @@ steps:
 `PullRequestDescription` uses some interal modifiers to know where to append content to. If you wish to remove these before setting the variable, set `stripIdentifiers` to true.
 
 ---
+
 
 ## Other
 

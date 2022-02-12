@@ -28,6 +28,18 @@
     },
     "description-set-variable": {
       "file": "../tasks/pull-request-description/docs/examples/set-variable.md"
+    },
+    "status-create": {
+      "file": "../tasks/pull-request-status/docs/examples/create-status.yml"
+    },
+    "tags-assign": {
+      "file": "../tasks/pull-request-tags/docs/examples/assign-tag.md"
+    },
+    "tags-remove": {
+      "file": "../tasks/pull-request-tags/docs/examples/remove-tag.md"
+    },
+    "tags-check": {
+      "file": "../tasks/pull-request-tags/docs/examples/check-tag.md"
     }
   }
 }

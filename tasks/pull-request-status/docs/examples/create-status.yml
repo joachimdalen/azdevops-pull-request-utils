@@ -1,0 +1,16 @@
+steps:
+  - task: PullRequestStatus@0
+    displayName: 'Initialize status'
+    inputs:
+      name: 'my-custom-check'
+      action: 'Create'
+      state: 'pending'
+      description: 'Awaiting my custom check'
+  - script: 'echo Do something'
+  - task: PullRequestStatus@0
+    displayName: 'Update status'
+    inputs:
+      name: 'my-custom-check'
+      action: 'Update'
+      state: 'succeeded'
+      description: 'Check passed'

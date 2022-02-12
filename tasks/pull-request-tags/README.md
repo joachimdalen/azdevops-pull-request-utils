@@ -1,4 +1,4 @@
-# PullRequestTags@[x]
+# Pull Request Tags
 
 ---
 
@@ -6,25 +6,35 @@
 
 ---
 
-# ⚙️ Options
+## Options
 
-- `action`: The action to create. One of:
+### Example
 
-  - `assign` (default)
-  - `delete`
-  - `check`
+```yaml
+- task: PullRequestTags@0
+  inputs:
+    action: assign
+    tag: #Tag to perform action on.
+    outputVariable: PullRequest.TagCheckResult #The name of the output variable containing the check result
+    isOutput: false #If set, `outputVariable` is set as output and accessible from other jobs
+    useDefined: false #If set, overrides the value from `System.PullRequest.PullRequestId`
+    pullRequestId: $(System.PullRequest.PullRequestId) #If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId`
 
-- `tag`: The tag name
+```
 
-- `outputVariable`: The name of the output variable containing the check result. Default `PullRequest.TagCheckResult`. Applied to actions `check`
+### All Options
 
-- `isOutput`: If set, `outputVariable` is set as output and accessible from other jobs
+| Option           | Default Value                         | Required | Help                                                                                                                                                                 | Options                     |
+| :--------------- | :------------------------------------ | :------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------- |
+| `action`         | `assign`                              |    ❌    | --                                                                                                                                                                   | `assign`, `check`, `delete` |
+| `tag`            | --                                    |    ✅    | Tag to perform action on.                                                                                                                                            | --                          |
+| `outputVariable` | `PullRequest.TagCheckResult`          |    ✅    | The name of the output variable containing the check result                                                                                                          | --                          |
+| `isOutput`       | `false`                               |    ❌    | If set, `outputVariable` is set as output and accessible from other jobs                                                                                             | --                          |
+| `useDefined`     | `false`                               |    ❌    | If set, overrides the value from `System.PullRequest.PullRequestId`                                                                                                  | --                          |
+| `pullRequestId`  | `$(System.PullRequest.PullRequestId)` |    ❌    | If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId` | --                          |
 
-- `useDefined`: Use the pre-defined id for the pull request. If set, overrides the value from `System.PullRequest.PullRequestId`. Default: `false`
 
-- `pullRequestId`: If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId`
-
-# ❓ Examples
+## Examples
 
 ## Assign tag to pull request
 
@@ -40,6 +50,7 @@ steps:
 it will assign the tag `my-tag` to the pull request
 
 ---
+
 
 ## Remove tag from pull request
 
@@ -57,6 +68,7 @@ it will remove the tag `my-tag` from the pull request
 
 ---
 
+
 ## Check if tag is assigned to pull request
 
 Given the following pipeline configuration
@@ -73,3 +85,4 @@ steps:
 ```
 
 it will check if the tag `my-tag` is assiged to the active pull request and output the result (`true` / `false`) to the variable `PullRequest.TagCheckResult`
+

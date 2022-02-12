@@ -27,6 +27,7 @@
     "webpack-merge": "^5.8.0"
   },
   "scripts": {
+    "docs:build": "sh ./compile-docs.sh",
     "copy-dev-docs": "cp docs/CHANGELOG-DEV.md docs/CHANGELOG.md",
     "copy-prod-docs": "cp docs/CHANGELOG-PROD.md docs/CHANGELOG.md",
     "package-release": "tfx extension create --root ./ --manifest-globs ./vss-extension.json",

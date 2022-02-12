@@ -1,4 +1,4 @@
-# PullRequestStatus@[x]
+# Pull Request Status
 
 ---
 
@@ -6,34 +6,37 @@
 
 ---
 
-# ⚙️ Options
+## Options
 
-- `action`: The action to perform. One of:
-
-  - `Create` (default)
-  - `Update`
-  - `Delete`
-
-- `name`: The name of the status. This will be appended to the genre and build the policy as `pull-request-utils/name`
-
-- `description`: Status description. Normally describes the current state of the status.
-
-- `state`: The state of the status. Applies to actions `Create` and `Update`. One of:
-
-  - `notSet` (default)
-  - `error`
-  - `failed`
-  - `notApplicable`
-  - `pending`
-  - `succeeded`
-
-- `useDefined`: Use the pre-defined id for the pull request. If set, overrides the value from `System.PullRequest.PullRequestId`. Default: `false`
-
-- `pullRequestId`: If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId`
-
-# ❓ Examples
+### Example
 
 ```yaml
+- task: PullRequestStatus@0
+  inputs:
+    action: Create
+    name: my-custom-gate #Name of the status. Full status will be pull-request-utils/<name>
+    description: #Status description. Normally describes the current state of the status.
+    state: notSet
+    useDefined: false #If set, overrides the value from `System.PullRequest.PullRequestId`
+    pullRequestId: $(System.PullRequest.PullRequestId) #If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId`
+
+```
+
+### All Options
+
+| Option          | Default Value                         | Required | Help                                                                                                                                                                 | Options                                                              |
+| :-------------- | :------------------------------------ | :------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------- |
+| `action`        | `Create`                              |    ✅    | --                                                                                                                                                                   | `Create`, `Update`, `Delete`                                         |
+| `name`          | `my-custom-gate`                      |    ✅    | Name of the status. Full status will be pull-request-utils/<name>                                                                                                    | --                                                                   |
+| `description`   | --                                    |    ❌    | Status description. Normally describes the current state of the status.                                                                                              | --                                                                   |
+| `state`         | `notSet`                              |    ✅    | --                                                                                                                                                                   | `notSet`, `error`, `failed`, `notApplicable`, `pending`, `succeeded` |
+| `useDefined`    | `false`                               |    ❌    | If set, overrides the value from `System.PullRequest.PullRequestId`                                                                                                  | --                                                                   |
+| `pullRequestId` | `$(System.PullRequest.PullRequestId)` |    ❌    | If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId` | --                                                                   |
+
+
+## Examples
+
+```yml
 steps:
   - task: PullRequestStatus@0
     displayName: 'Initialize status'
@@ -42,9 +45,7 @@ steps:
       action: 'Create'
       state: 'pending'
       description: 'Awaiting my custom check'
-
-  ... some other tasks
-
+  - script: 'echo Do something'
   - task: PullRequestStatus@0
     displayName: 'Update status'
     inputs:
@@ -52,6 +53,7 @@ steps:
       action: 'Update'
       state: 'succeeded'
       description: 'Check passed'
+
 ```
 
 # 🐞 Known issues

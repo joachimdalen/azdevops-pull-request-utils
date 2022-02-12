@@ -1,43 +1,44 @@
-# PullRequestComments@[x]
+# Pull Request Comments
 
 ---
 
-**PullRequestComments allows you post comments on a give pull request.**
+**Add comments to a pull request**
 
 ---
 
-# ⚙️ Options
+## Options
 
-- `skipIfCommentExists`: If the comment exists on the pull request, do not post it again. Only valid for `action: create`
+### Example
 
-- `action`: The action to perform
+```yaml
+- task: PullRequestComments@0
+  inputs:
+    action: create #Action to perform
+    skipIfCommentExists: true #If the comment exists on the pull request, do not post it again
+    commentId: #Is used to uniqely identify the comment when using the same task multiple times in the same pipeline
+    status: Active #Post the comment with a given status
+    content: #The content of the comment. For Markdown syntax, see [Syntax guidance for basic Markdown usage](http://go.microsoft.com/fwlink/?LinkId=823918)
+    useDefined: false #If set, overrides the value from `System.PullRequest.PullRequestId`
+    pullRequestId: $(System.PullRequest.PullRequestId) #If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId`
+    type: Text #The type of comment. `Text` represents a regular user comment while `System` indicates a system message
 
-  - `create` - Will only create the comment. If it already exists, posting is only skipped if `skipIfCommentExists:true`.
-  - `createOrUpdate` - Will create the comment if it does not exist, and update it if it does.
-  - `update`: - Will only update the comment if it exists, if it does not, it is skipped.
+```
 
-- `commentId`: Set this to a static value that identifies the task. You only need to set this if you use multiple `PullRequestComments` tasks in the same pipeline. Failing to set this in these cases can lead to the task updating the wrong comment.
+### All Options
 
-- `status`: Status for the comment
+| Option                | Default Value                         | Required | Help                                                                                                                                                                 | Options                                           |
+| :-------------------- | :------------------------------------ | :------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------ |
+| `action`              | `create`                              |    ❌    | Action to perform                                                                                                                                                    | `create`, `createOrUpdate`, `update`              |
+| `skipIfCommentExists` | `true`                                |    ❌    | If the comment exists on the pull request, do not post it again                                                                                                      | --                                                |
+| `commentId`           | --                                    |    ❌    | Is used to uniqely identify the comment when using the same task multiple times in the same pipeline                                                                 | --                                                |
+| `status`              | `Active`                              |    ❌    | Post the comment with a given status                                                                                                                                 | `Active`, `Fixed`, `WontFix`, `Closed`, `Pending` |
+| `content`             | --                                    |    ✅    | The content of the comment. For Markdown syntax, see [Syntax guidance for basic Markdown usage](http://go.microsoft.com/fwlink/?LinkId=823918)                       | --                                                |
+| `useDefined`          | `false`                               |    ❌    | If set, overrides the value from `System.PullRequest.PullRequestId`                                                                                                  | --                                                |
+| `pullRequestId`       | `$(System.PullRequest.PullRequestId)` |    ❌    | If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId` | --                                                |
+| `type`                | `Text`                                |    ❌    | The type of comment. `Text` represents a regular user comment while `System` indicates a system message                                                              | `Text`, `System`                                  |
 
-  - `Active` : The thread status is active
-  - `Fixed`: The thread status is resolved as fixed.
-  - `WontFix`: The thread status is resolved as won't fix.
-  - `Closed`: The thread status is closed.
-  - `Pending`: The thread status is pending.
 
-- `content`: The content of the comment. For Markdown syntax, see [Syntax guidance for basic Markdown usage](http://go.microsoft.com/fwlink/?LinkId=823918). **Supports usage of variables.**
-
-- `type`: The type of comment. `Text` represents a regular user comment while `System` indicates a system message. Accepts:
-
-  - `Text`
-  - `System`
-
-- `useDefined`: Use the pre-defined id for the pull request. If set, overrides the value from `System.PullRequest.PullRequestId`. Default: `false`
-
-- `pullRequestId`: If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId`
-
-# ❓ Examples
+## Examples
 
 ## Posting a comment
 
@@ -56,6 +57,7 @@ steps:
 after a run against a pull request it will post the comment:
 
 ![simple-comment](../../docs/images/simple-pr-comment.png)
+
 
 ## Posting a comment with markdown
 
@@ -80,6 +82,7 @@ steps:
 after a run against a pull request it will post the comment:
 
 ![simple-comment](../../docs/images/markdown-pr-comment.png)
+
 
 ## Posting multiple comments
 
@@ -109,3 +112,4 @@ steps:
       commentId: 'markdown_comment'
       content: 'This is a comment posted from pipeline $(Build.Repository.Name)'
 ```
+

@@ -41,8 +41,7 @@
       "label": "Use defined id",
       "helpMarkDown": "Use the pre-defined id for the pull request. If set, overrides the value from `System.PullRequest.PullRequestId`. Default: `false`",
       "defaultValue": false,
-      "type": "boolean",
-      "groupName": "advanced"
+      "type": "boolean"
     },
     {
       "name": "pullRequestId",
@@ -50,7 +49,6 @@
       "type": "string",
       "defaultValue": "$(System.PullRequest.PullRequestId)",
       "helpMarkDown": "If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId`",
-      "groupName": "advanced",
       "visibleRule": "useDefined = true"
     },
     {

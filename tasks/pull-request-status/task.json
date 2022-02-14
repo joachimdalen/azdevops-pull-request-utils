@@ -11,16 +11,9 @@
   "version": {
     "Major": 0,
     "Minor": 0,
-    "Patch": 7
+    "Patch": 8
   },
   "instanceNameFormat": "$(Action)",
-  "groups": [
-    {
-      "name": "advanced",
-      "displayName": "Advanced",
-      "isExpanded": true
-    }
-  ],
   "inputs": [
     {
       "name": "action",
@@ -70,8 +63,7 @@
       "label": "Use defined id",
       "helpMarkDown": "If set, overrides the value from `System.PullRequest.PullRequestId`",
       "defaultValue": false,
-      "type": "boolean",
-      "groupName": "advanced"
+      "type": "boolean"
     },
     {
       "name": "pullRequestId",
@@ -79,7 +71,6 @@
       "type": "string",
       "defaultValue": "$(System.PullRequest.PullRequestId)",
       "helpMarkDown": "If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId`",
-      "groupName": "advanced",
       "visibleRule": "useDefined = true"
     }
   ],

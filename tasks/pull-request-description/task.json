@@ -11,16 +11,9 @@
   "version": {
     "Major": 0,
     "Minor": 2,
-    "Patch": 4
+    "Patch": 5
   },
   "instanceNameFormat": "$(Action)",
-  "groups": [
-    {
-      "name": "advanced",
-      "displayName": "Advanced",
-      "isExpanded": true
-    }
-  ],
   "inputs": [
     {
       "name": "action",

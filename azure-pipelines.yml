@@ -31,6 +31,9 @@ stages:
       - job:
         steps:
           - template: .ci/install.template.yml
+          - template: .ci/build.template.yml
+            parameters:
+              extensionEnv: dev
           - template: .ci/run-tests.template.yml
 
   - stage: package_dev

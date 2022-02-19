@@ -30,7 +30,7 @@
     "changelog": "azext changelog generate --format",
     "changelog:prod": "azext changelog generate --output ./marketplace/docs/CHANGELOG.md --format",
     "changelog:prod:version": "azext changelog generate --output ./marketplace/docs/CHANGELOG-RELEASE.md --format",
-    "docs:build": "sh ./compile-docs.sh",
+    "docs:build": "azext readme generate --input ./marketplace/raw/README-BASE.md --output ./marketplace/docs/README.md --profile marketplace",
     "package-release": "tfx extension create --root ./ --manifest-globs ./vss-extension.json",
     "package-dev": "tfx extension create --root ./ --manifest-globs ./vss-extension.json --overrides-file ./vss-extension.dev.json",
     "lint": "lerna run lint --parallel",

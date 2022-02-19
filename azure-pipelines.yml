@@ -43,11 +43,15 @@ stages:
     variables:
       - group: 'mp-pull-request-utils-dev'
     jobs:
+      - template: .ci/build-docs.template.yml
+        parameters:
+          extensionEnv: dev
+          generateVersionChangelog: false
+          taskVersion: ${{ parameters.taskVersion }}
       - template: .ci/build-extension-artifact.template.yml
         parameters:
           extensionEnv: dev
           taskVersion: ${{ parameters.taskVersion }}
-          generateVersionChangelog: false
 
   - stage: publish_dev
     displayName: '[DEV] Publish'
@@ -85,6 +89,10 @@ stages:
     variables:
       - group: 'mp-pull-request-utils-prod'
     jobs:
+      - template: .ci/build-docs.template.yml
+        parameters:
+          extensionEnv: prod
+          taskVersion: ${{ parameters.taskVersion }}
       - template: .ci/build-extension-artifact.template.yml
         parameters:
           extensionEnv: prod

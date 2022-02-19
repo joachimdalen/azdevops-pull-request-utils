@@ -1,3 +1,7 @@
+parameters:
+  - name: nodeVersion
+    default: '10.21.0'
+
 steps:
   - task: NodeTool@0
     displayName: 'Install node'

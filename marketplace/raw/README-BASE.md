@@ -11,11 +11,19 @@ Pull Request Utils is a collection of tasks to interact with pull requests from 
 
 > ❗ This extension requires the user account `<project name> Build Service (<org name>)` to be granted the permission `Contribute to pull requests`
 
-Please report any feedback/issue [here](https://github.com/joachimdalen/AzureDevOpsExtensions)
+Please report any feedback/issue [here](https://github.com/joachimdalen/azdevops-pull-request-utils)
 
 # 📦 Tasks
 
-- [PullRequestComments@[x]](#PullRequestComments@[x])
-- [PullRequestTags@[x]](#PullRequestTags@[x])
-- [PullRequestStatus@[x]](#PullRequestStatus@[x])
-- [PullRequestDescription@[x]](#PullRequestDescription@[x])
+- PullRequestComments
+- PullRequestTags
+- PullRequestStatus
+- PullRequestDescription
+
+{{ #include-partial[file=pull-request-comments] }}
+
+{{ #include-partial[file=pull-request-tags] }}
+
+{{ #include-partial[file=pull-request-status] }}
+
+{{ #include-partial[file=pull-request-description] }}

@@ -29,24 +29,25 @@
     "description-set-variable": {
       "file": "../tasks/pull-request-description/docs/examples/set-variable.md"
     },
-    "status-create": {
-      "file": "../tasks/pull-request-status/docs/examples/create-status.yml"
-    },
-    "tags-assign": {
-      "file": "../tasks/pull-request-tags/docs/examples/assign-tag.md"
-    },
-    "tags-remove": {
-      "file": "../tasks/pull-request-tags/docs/examples/remove-tag.md"
-    },
-    "tags-check": {
-      "file": "../tasks/pull-request-tags/docs/examples/check-tag.md"
-    }
+    "status-create": { "file": "../tasks/pull-request-status/docs/examples/create-status.yml" },
+    "tags-assign": { "file": "../tasks/pull-request-tags/docs/examples/assign-tag.md" },
+    "tags-remove": { "file": "../tasks/pull-request-tags/docs/examples/remove-tag.md" },
+    "tags-check": { "file": "../tasks/pull-request-tags/docs/examples/check-tag.md" },
+    "pull-request-comments": { "file": "../tasks/pull-request-comments/docs/README.md" },
+    "pull-request-description": { "file": "../tasks/pull-request-description/docs/README.md" },
+    "pull-request-status": { "file": "../tasks/pull-request-status/docs/README.md" },
+    "pull-request-tags": { "file": "../tasks/pull-request-tags/docs/README.md" }
   },
   "profiles": [
     {
       "name": "github",
       "imageFolder": "marketplace/docs/images",
       "relative": true
+    },
+    {
+      "name": "marketplace",
+      "imageFolder": "marketplace/docs/images",
+      "relative": false
     }
   ]
 }

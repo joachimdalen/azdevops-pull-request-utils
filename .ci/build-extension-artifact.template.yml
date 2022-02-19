@@ -1,0 +1,90 @@
+parameters:
+  - name: artifact
+    default: extension
+  - name: extensionEnv
+    default: dev
+    values:
+      - dev
+      - qa
+      - prod
+  - name: taskVersion
+    displayName: 'Task Version'
+    type: string
+    default: $(Task.Extension.Version)
+  - name: generateVersionChangelog
+    type: boolean
+    default: true
+jobs:
+  - job:
+    steps:
+      - task: TfxInstaller@3
+        displayName: 'Install Tfx'
+        inputs:
+          version: 'v0.10.0'
+      - task: QueryAzureDevOpsExtensionVersion@3
+        displayName: 'Query existing version'
+        inputs:
+          connectTo: 'VsTeam'
+          connectedServiceName: $(marketplaceServiceConnection)
+          publisherId: '$(PublisherID)'
+          extensionId: '$(ExtensionID)'
+          versionAction: 'Patch'
+          outputVariable: 'Task.Extension.Version'
+      - template: install.template.yml
+      - template: build.template.yml
+        parameters:
+          extensionEnv: ${{ parameters.extensionEnv }}
+      - task: Npm@1
+        displayName: 'Build changelog'
+        inputs:
+          command: custom
+          customCommand: run changelog:${{ parameters.extensionEnv }}
+      - task: Npm@1
+        displayName: 'Build single version changelog'
+        condition: eq(${{ parameters.generateVersionChangelog }}, true)
+        inputs:
+          command: custom
+          customCommand: run changelog:${{ parameters.extensionEnv }}:version -- --version ${{ parameters.taskVersion }}
+      - task: Npm@1
+        displayName: 'Build readme'
+        inputs:
+          command: custom
+          customCommand: run docs:readme
+      - task: PackageAzureDevOpsExtension@3
+        displayName: 'Package extension'
+        inputs:
+          rootFolder: '$(Build.SourcesDirectory)'
+          patternManifest: 'vss-extension.${{ parameters.extensionEnv }}.json'
+          updateTasksVersion: false
+          extensionVersion: ${{ parameters.taskVersion }}
+      - task: Bash@3
+        displayName: 'Move artifacts'
+        inputs:
+          targetType: inline
+          workingDirectory: 
+          script: |
+            mkdir $(Build.ArtifactStagingDirectory)/extension/
+            mkdir $(Build.ArtifactStagingDirectory)/changelog/
+            mv $(Build.SourcesDirectory)/*.vsix $(Build.ArtifactStagingDirectory)/extension/
+            cp $(Build.SourcesDirectory)/marketplace/docs/CHANGELOG.md $(Build.ArtifactStagingDirectory)/changelog/
+      - task: Bash@3
+        displayName: 'Move version changelog'
+        condition: eq(${{ parameters.generateVersionChangelog }}, true)
+        inputs:
+          targetType: inline
+          workingDirectory: 
+          script: |
+            mv $(Build.SourcesDirectory)/marketplace/docs/CHANGELOG-RELEASE.md $(Build.ArtifactStagingDirectory)/changelog/
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish ${{ parameters.artifact }} artifacts'
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)/extension'
+          artifactName: '${{ parameters.artifact }}'
+          publishLocation: pipeline
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish changelog artifacts'
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)/changelog'
+          artifactName: 'changelog'
+          publishLocation: pipeline
+  

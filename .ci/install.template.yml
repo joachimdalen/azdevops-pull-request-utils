@@ -1,0 +1,14 @@
+steps:
+  - task: NodeTool@0
+    displayName: 'Install node'
+    inputs:
+      versionSpec: '16.x'
+  - task: Cache@2
+    displayName: Cache npm
+    inputs:
+      key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/package-lock.json'
+      path: "$(npm_config_cache)"
+  - task: Npm@1
+    displayName: 'Install dependencies'
+    inputs:
+      command: ci

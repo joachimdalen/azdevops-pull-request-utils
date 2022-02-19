@@ -1,0 +1,14 @@
+parameters:
+  - name: extensionEnv
+    default: dev
+    values:
+      - dev
+      - qa
+      - prod
+
+steps:
+  - task: Npm@1
+    displayName: 'Compile - ${{ parameters.extensionEnv }}'
+    inputs:
+      command: custom
+      customCommand: 'run compile:${{ parameters.extensionEnv }}'

@@ -14,6 +14,7 @@ parameters:
 jobs:
   - job:
     dependsOn: 'build_docs_${{ parameters.extensionEnv }}'
+    displayName: 'Build extension'
     steps:
       - task: DownloadPipelineArtifact@2
         displayName: 'Download docs'

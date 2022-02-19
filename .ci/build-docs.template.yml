@@ -14,6 +14,7 @@ parameters:
     default: true
 jobs:
   - job: 'build_docs_${{ parameters.extensionEnv }}'
+    displayName: 'Build docs'
     steps:
       - task: TfxInstaller@3
         displayName: 'Install Tfx'
@@ -31,9 +32,6 @@ jobs:
       - template: install.template.yml
         parameters:
           nodeVersion: '16.x'
-      - template: build.template.yml
-        parameters:
-          extensionEnv: ${{ parameters.extensionEnv }}
       - task: Npm@1
         displayName: 'Build changelog'
         inputs:

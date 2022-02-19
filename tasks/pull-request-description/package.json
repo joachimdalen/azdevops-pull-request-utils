@@ -9,8 +9,8 @@
     "test:integration": "PRU_DESC_LOG=true mocha dist/tests/_suite.js",
     "test:integration:coverage": "PRU_DESC_LOG=true mocha dist/tests/_suite.js --reporter xunit --reporter-option output=ResultsFile.xml",
     "clean": "rimraf ./dist",
-    "lint": "eslint . --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx",
-    "lint:fix": "eslint --fix . --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx"
+    "lint": "eslint . --ignore-path ../../.eslintignore --ext ts",
+    "lint:fix": "eslint --fix . --ignore-path ../../.eslintignore --ext ts"
   },
   "dependencies": {
     "azure-devops-node-api": "^10.2.2",

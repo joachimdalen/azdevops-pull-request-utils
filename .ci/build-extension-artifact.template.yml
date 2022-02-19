@@ -13,6 +13,7 @@ parameters:
     default: $(Task.Extension.Version)
 jobs:
   - job:
+    dependsOn: 'build_docs_${{ parameters.extensionEnv }}'
     steps:
       - task: DownloadPipelineArtifact@2
         displayName: 'Download docs'

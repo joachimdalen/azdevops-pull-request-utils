@@ -13,7 +13,7 @@ parameters:
     type: boolean
     default: true
 jobs:
-  - job:
+  - job: 'build_docs_${{ parameters.extensionEnv }}'
     steps:
       - task: TfxInstaller@3
         displayName: 'Install Tfx'

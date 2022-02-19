@@ -16,6 +16,68 @@
     ]
   },
   {
+    "publishDate": "2022-02-12",
+    "version": "0.5.5",
+    "modules": [
+      {
+        "name": "PullRequestDescription",
+        "version": "0.2.5",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Removed input groups for UI for task configuration. These was causing issues in DevOps Server",
+            "type": "fix"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestComments",
+        "version": "0.2.5",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Removed input groups for UI for task configuration. These was causing issues in DevOps Server",
+            "type": "fix"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestStatus",
+        "version": "0.0.8",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Removed input groups for UI for task configuration. These was causing issues in DevOps Server",
+            "type": "fix"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestTags",
+        "version": "0.1.13",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Removed input groups for UI for task configuration. These was causing issues in DevOps Server",
+            "type": "fix"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "publishDate": "2021-12-18",
     "version": "0.5.4",
     "modules": [
@@ -278,7 +340,7 @@
     ]
   },
   {
-    "publishDate": "2021-01-11",
+    "publishDate": "2021-01-27",
     "version": "0.4.2",
     "modules": [
       {

@@ -41,5 +41,12 @@
     "tags-check": {
       "file": "../tasks/pull-request-tags/docs/examples/check-tag.md"
     }
-  }
+  },
+  "profiles": [
+    {
+      "name": "github",
+      "imageFolder": "marketplace/docs/images",
+      "relative": true
+    }
+  ]
 }

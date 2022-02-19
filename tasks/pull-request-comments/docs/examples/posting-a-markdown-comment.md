@@ -20,4 +20,4 @@ steps:
 
 after a run against a pull request it will post the comment:
 
-![simple-comment](../../docs/images/markdown-pr-comment.png)
+![simple-comment](../../marketplace/docs/images/markdown-pr-comment.png)

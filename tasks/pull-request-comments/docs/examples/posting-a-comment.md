@@ -14,4 +14,4 @@ steps:
 
 after a run against a pull request it will post the comment:
 
-![simple-comment](../../docs/images/simple-pr-comment.png)
+![simple-comment](../../marketplace/docs/images/simple-pr-comment.png)

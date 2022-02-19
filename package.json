@@ -32,7 +32,9 @@
     "package-release": "tfx extension create --root ./ --manifest-globs ./vss-extension.json",
     "package-dev": "tfx extension create --root ./ --manifest-globs ./vss-extension.json --overrides-file ./vss-extension.dev.json",
     "lint": "lerna run lint --parallel",
-    "build": "lerna run build --parallel",
+    "compile:shared": "lerna run build --scope pull-request-core",
+    "compile:dev": "npm run compile:shared && lerna run compile:dev --parallel",
+    "compile:prod": "npm run compile:shared && lerna run compile:prod --parallel",
     "lint:fix": "lerna run lint:fix --parallel",
     "test:integration": "lerna run test:integration --parallel",
     "test:integration:coverage": "lerna run test:integration:coverage --parallel"

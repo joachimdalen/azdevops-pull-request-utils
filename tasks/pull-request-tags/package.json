@@ -3,9 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "prebuild": "rimraf ./dist",
-    "build": "tsc -p .",
-    "postbuild": "webpack --config webpack.config",
+    "precompile:dev": "rimraf ./dist && tsc -p .",
+    "precompile:prod": "rimraf ./dist && tsc -p .",
+    "compile:dev": "webpack --config webpack.config",
+    "compile:prod": "webpack --config webpack.config --mode production",
     "clean": "rimraf ./dist",
     "lint": "eslint . --ignore-path ../../.eslintignore --ext ts",
     "lint:fix": "eslint --fix . --ignore-path ../../.eslintignore --ext ts",

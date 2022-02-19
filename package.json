@@ -27,7 +27,9 @@
     "webpack-merge": "^5.8.0"
   },
   "scripts": {
-    "changelog": "azext changelog generate",
+    "changelog": "azext changelog generate --format",
+    "changelog:prod": "azext changelog generate --output ./marketplace/docs/CHANGELOG.md --format",
+    "changelog:prod:version": "azext changelog generate --output ./marketplace/docs/CHANGELOG-RELEASE.md --format",
     "docs:build": "sh ./compile-docs.sh",
     "package-release": "tfx extension create --root ./ --manifest-globs ./vss-extension.json",
     "package-dev": "tfx extension create --root ./ --manifest-globs ./vss-extension.json --overrides-file ./vss-extension.dev.json",

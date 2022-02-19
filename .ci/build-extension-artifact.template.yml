@@ -38,13 +38,13 @@ jobs:
         displayName: 'Build changelog'
         inputs:
           command: custom
-          customCommand: run changelog:${{ parameters.extensionEnv }}
+          customCommand: run changelog:prod
       - task: Npm@1
         displayName: 'Build single version changelog'
         condition: eq(${{ parameters.generateVersionChangelog }}, true)
         inputs:
           command: custom
-          customCommand: run changelog:${{ parameters.extensionEnv }}:version -- --version ${{ parameters.taskVersion }}
+          customCommand: run changelog:prod:version -- --version ${{ parameters.taskVersion }}
       - task: Npm@1
         displayName: 'Build readme'
         inputs:
@@ -61,7 +61,6 @@ jobs:
         displayName: 'Move artifacts'
         inputs:
           targetType: inline
-          workingDirectory: 
           script: |
             mkdir $(Build.ArtifactStagingDirectory)/extension/
             mkdir $(Build.ArtifactStagingDirectory)/changelog/
@@ -72,7 +71,6 @@ jobs:
         condition: eq(${{ parameters.generateVersionChangelog }}, true)
         inputs:
           targetType: inline
-          workingDirectory: 
           script: |
             mv $(Build.SourcesDirectory)/marketplace/docs/CHANGELOG-RELEASE.md $(Build.ArtifactStagingDirectory)/changelog/
       - task: PublishPipelineArtifact@1
@@ -87,4 +85,3 @@ jobs:
           targetPath: '$(Build.ArtifactStagingDirectory)/changelog'
           artifactName: 'changelog'
           publishLocation: pipeline
-  

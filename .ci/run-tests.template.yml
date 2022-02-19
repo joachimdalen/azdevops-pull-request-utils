@@ -12,20 +12,20 @@ steps:
     inputs:
       command: custom
       customCommand: 'run test:integration:coverage'
-  - task: Bash@3
-    displayName: 'Move coverage files'
-    inputs:
-      targetType: 'inline'
-      script: |
-        cp -r $(Build.SourcesDirectory)/coverage $(Build.ArtifactStagingDirectory)
+  # - task: Bash@3
+  #   displayName: 'Move coverage files'
+  #   inputs:
+  #     targetType: 'inline'
+  #     script: |
+  #       cp -r $(Build.SourcesDirectory)/coverage $(Build.ArtifactStagingDirectory)
   - task: PublishTestResults@2
     displayName: 'Publish test results'
     inputs:
       testResultsFormat: 'JUnit'
       testResultsFiles: '**/**/ResultsFile.xml'
-  - task: PublishCodeCoverageResults@1
-    displayName: 'Publish coverage'
-    inputs:
-      codeCoverageTool: 'Cobertura'
-      summaryFileLocation: '$(Build.ArtifactStagingDirectory)/coverage/cobertura-coverage.xml'
-      pathToSources: '$(Build.SourcesDirectory)/src'
+  # - task: PublishCodeCoverageResults@1
+  #   displayName: 'Publish coverage'
+  #   inputs:
+  #     codeCoverageTool: 'Cobertura'
+  #     summaryFileLocation: '$(Build.ArtifactStagingDirectory)/coverage/cobertura-coverage.xml'
+  #     pathToSources: '$(Build.SourcesDirectory)/src'

@@ -29,7 +29,7 @@
     "changelog": { "path": "marketplace/docs/CHANGELOG.md" }
   },
   "branding": {
-    "color": "#4E76A8",
+    "color": "#DB6900",
     "theme": "dark"
   },
   "links": {

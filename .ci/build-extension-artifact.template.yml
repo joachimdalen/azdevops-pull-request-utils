@@ -25,8 +25,8 @@ jobs:
         inputs:
           targetType: inline
           script: |
-            cp $(Pipeline.Workspace)/**/CHANGELOG.md $(Build.SourcesDirectory)/marketplace/docs/
-            cp $(Pipeline.Workspace)/**/README.md $(Build.SourcesDirectory)/marketplace/docs/
+            cp $(Pipeline.Workspace)/CHANGELOG.md $(Build.SourcesDirectory)/marketplace/docs/
+            cp $(Pipeline.Workspace)/README.md $(Build.SourcesDirectory)/marketplace/docs/
       - task: TfxInstaller@3
         displayName: 'Install Tfx'
         inputs:

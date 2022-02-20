@@ -25,16 +25,26 @@
   ],
   "public": true,
   "content": {
-    "details": { "path": "docs/README.md" },
-    "changelog": { "path": "docs/CHANGELOG.md" }
+    "details": { "path": "marketplace/docs/README.md" },
+    "changelog": { "path": "marketplace/docs/CHANGELOG.md" }
   },
   "branding": {
     "color": "#4E76A8",
     "theme": "dark"
   },
   "links": {
-    "support": { "uri": "https://github.com/joachimdalen/AzureDevOpsExtensions" },
-    "privacypolicy": { "uri": "https://devops-extensions.github.io/docs/#/privacy" }
+    "repository": {
+      "uri": "https://github.com/joachimdalen/azdevops-pull-request-utils"
+    },
+    "support": {
+      "uri": "https://github.com/joachimdalen/azdevops-pull-request-utils"
+    },
+    "privacypolicy": {
+      "uri": "https://devops-extensions.github.io/docs/docs/privacy"
+    },
+    "license": {
+      "uri": "https://github.com/joachimdalen/azdevops-pull-request-utils/blob/master/LICENSE"
+    }
   },
   "files": [
     {
@@ -54,16 +64,16 @@
       "packagePath": "/pull-request-utils/pull-request-description/"
     },
     {
-      "path": "docs/images",
+      "path": "marketplace/docs/images",
       "addressable": true
     }
   ],
   "screenshots": [
     {
-      "path": "docs/images/markdown-pr-comment.png"
+      "path": "marketplace/docs/images/markdown-pr-comment.png"
     },
     {
-      "path": "docs/images/simple-pr-comment.png"
+      "path": "marketplace/docs/images/simple-pr-comment.png"
     }
   ],
   "icons": {

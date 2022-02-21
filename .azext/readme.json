@@ -1,15 +1,4 @@
 {
-  "includeInputsFields": [
-    { "field": "name", "title": "Option", "align": "left" },
-    { "field": "defaultValue", "title": "Default Value", "align": "left" },
-    { "field": "required", "title": "Required", "align": "center" },
-    { "field": "helpMarkDown", "title": "Help", "align": "left" },
-    { "field": "options", "title": "Options", "align": "left" }
-  ],
-  "requiredOptions": {
-    "false": ":x:",
-    "true": ":white_check_mark:"
-  },
   "partials": {
     "comments-single": {
       "file": "../tasks/pull-request-comments/docs/examples/posting-a-comment.md"

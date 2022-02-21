@@ -6,13 +6,11 @@
 
 ---
 
-## Options
-
-### Example
+## YAML Snippet
 
 {{ #task-input[task=description;type=example] }}
 
-### All Options
+## Arguments
 
 {{ #task-input[task=description;type=table] }}
 

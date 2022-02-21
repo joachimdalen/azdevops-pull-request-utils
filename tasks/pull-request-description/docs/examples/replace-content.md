@@ -1,4 +1,4 @@
-## Replace content
+### Replace content
 
 The following configuration will replace the entire pull request description on each run.
 

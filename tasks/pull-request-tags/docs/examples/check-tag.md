@@ -1,4 +1,4 @@
-## Check if tag is assigned to pull request
+### Check if tag is assigned to pull request
 
 Given the following pipeline configuration
 

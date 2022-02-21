@@ -1,4 +1,4 @@
-## Assign tag to pull request
+### Assign tag to pull request
 
 Given the following pipeline configuration
 

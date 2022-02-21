@@ -1,4 +1,4 @@
-## Append content
+### Append content
 
 Append will append content to the end of the PR on the first run. On sequential runs the content will be replaced. A markdown comment will be added to the pull request so the task knows where to replace content from.
 

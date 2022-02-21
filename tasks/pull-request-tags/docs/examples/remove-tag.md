@@ -1,4 +1,4 @@
-## Remove tag from pull request
+### Remove tag from pull request
 
 Given the following pipeline configuration
 

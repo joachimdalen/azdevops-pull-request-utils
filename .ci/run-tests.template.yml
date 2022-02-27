@@ -11,7 +11,7 @@ steps:
     displayName: 'Run tests'
     inputs:
       command: custom
-      customCommand: 'run test:integration'
+      customCommand: 'run test:integration:coverage'
   # - task: Bash@3
   #   displayName: 'Move coverage files'
   #   inputs:

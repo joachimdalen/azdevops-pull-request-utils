@@ -2,7 +2,7 @@ parameters:
   - name: compileMode
     displayName: 'Compile Mode'
     type: string
-    default: development
+    default: dev
 
 steps:
   - task: Npm@1

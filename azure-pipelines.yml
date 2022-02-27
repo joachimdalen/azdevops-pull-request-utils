@@ -39,6 +39,8 @@ stages:
         steps:
           - template: .ci/install.template.yml
           - template: .ci/build.template.yml
+            parameters:
+              compileMode: ${{ parameters.compileMode }}
           - template: .ci/run-tests.template.yml
 
   - stage: package_dev

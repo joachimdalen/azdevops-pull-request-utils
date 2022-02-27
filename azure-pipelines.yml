@@ -3,6 +3,13 @@ parameters:
     displayName: 'Task Version'
     type: string
     default: $(Task.Extension.Version)
+  - name: compileMode
+    displayName: 'Compile Mode'
+    type: string
+    default: dev
+    values:
+      - dev
+      - prod
 
 trigger:
   branches:
@@ -32,8 +39,6 @@ stages:
         steps:
           - template: .ci/install.template.yml
           - template: .ci/build.template.yml
-            parameters:
-              extensionEnv: dev
           - template: .ci/run-tests.template.yml
 
   - stage: package_dev
@@ -50,6 +55,7 @@ stages:
           taskVersion: ${{ parameters.taskVersion }}
       - template: .ci/build-extension-artifact.template.yml
         parameters:
+          compileMode: ${{ parameters.compileMode }}
           extensionEnv: dev
           taskVersion: ${{ parameters.taskVersion }}
 
@@ -95,6 +101,7 @@ stages:
           taskVersion: ${{ parameters.taskVersion }}
       - template: .ci/build-extension-artifact.template.yml
         parameters:
+          compileMode: ${{ parameters.compileMode }}
           extensionEnv: prod
           taskVersion: ${{ parameters.taskVersion }}
 

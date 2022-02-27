@@ -11,6 +11,10 @@ parameters:
     displayName: 'Task Version'
     type: string
     default: $(Task.Extension.Version)
+  - name: compileMode
+    displayName: 'Compile Mode'
+    type: string
+    default: dev
 jobs:
   - job:
     dependsOn: 'build_docs_${{ parameters.extensionEnv }}'
@@ -45,7 +49,7 @@ jobs:
           nodeVersion: '10.21.0'
       - template: build.template.yml
         parameters:
-          extensionEnv: ${{ parameters.extensionEnv }}
+          compileMode: ${{ parameters.compileMode }}
       - task: PackageAzureDevOpsExtension@3
         displayName: 'Package extension'
         inputs:

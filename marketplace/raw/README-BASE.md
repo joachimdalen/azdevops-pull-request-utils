@@ -1,6 +1,27 @@
-# Pull Request Utils
+<div id="top"></div>
 
-Pull Request Utils is a collection of tasks to interact with pull requests from your pipelines. The tasks currently provide:
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+<h3 align="center">Git Guard</h3>
+
+  <p align="center">
+Pull Request Utils is a collection of tasks to interact with pull requests from your pipelines.
+    <br />
+    <a href="https://github.com/joachimdalen/azdevops-pull-request-utils"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://marketplace.visualstudio.com/items?itemName=joachimdalen.pull-request-utils">View Extension</a>
+    ·
+    <a href="https://marketplace.visualstudio.com/items?itemName=joachimdalen.pull-request-utils/changelog">Changelog</a>
+    ·
+    <a href="https://github.com/joachimdalen/azdevops-pull-request-utils/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/joachimdalen/azdevops-pull-request-utils/issues">Request Feature</a>
+  </p>
+</div>
+
+The tasks currently provide:
 
 - Creating and updating comments
 - Assigning tags

@@ -32,7 +32,7 @@
       "type": "string",
       "label": "Name",
       "defaultValue": "my-custom-gate",
-      "helpMarkDown": "Name of the status. Full status will be pull-request-utils/<name>",
+      "helpMarkDown": "Name of the status. Full status will be `pull-request-utils/<name>`",
       "required": true
     },
     {

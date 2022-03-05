@@ -1,9 +1,7 @@
 <div id="top"></div>
-
-<!-- PROJECT LOGO -->
 <br />
 <div align="center">
-<h3 align="center">Git Guard</h3>
+<h3 align="center">Pull Request Utils</h3>
 
   <p align="center">
 Pull Request Utils is a collection of tasks to interact with pull requests from your pipelines.

@@ -19,6 +19,7 @@
       "file": "../tasks/pull-request-description/docs/examples/set-variable.md"
     },
     "status-create": { "file": "../tasks/pull-request-status/docs/examples/create-status.yml" },
+    "status-access-warning": { "file": "../tasks/pull-request-status/docs/access-warning.md" },
     "tags-assign": { "file": "../tasks/pull-request-tags/docs/examples/assign-tag.md" },
     "tags-remove": { "file": "../tasks/pull-request-tags/docs/examples/remove-tag.md" },
     "tags-check": { "file": "../tasks/pull-request-tags/docs/examples/check-tag.md" },
@@ -36,6 +37,11 @@
     {
       "name": "marketplace",
       "imageFolder": "marketplace/docs/images",
+      "relative": false
+    },
+    {
+      "name": "doc-site",
+      "imageFolder": "/img/pull-request-utils/",
       "relative": false
     }
   ]

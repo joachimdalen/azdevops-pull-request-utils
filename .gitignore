@@ -12,3 +12,4 @@ ResultsFile.xml
 !ci/buildDocs.js
 README-GEN.md
 marketplace/docs/*.md
+docs/generated

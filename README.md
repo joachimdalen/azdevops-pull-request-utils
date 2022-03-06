@@ -11,7 +11,7 @@
   <p align="center">
     An extensions to manage pull requests. Includes posting comments on pull requests, checking if tags are assigned, assigning tags, updating the description and creating statuses 
     <br />
-    <a href="https://github.com/joachimdalen/azdevops-pull-request-utils/blob/master/docs/index.md"><strong>Explore the docs »</strong></a>
+    <a href="https://docs.devops-extensions.dev/docs/extensions/pull-request-utils"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://marketplace.visualstudio.com/items?itemName=joachimdalen.pull-request-utils">View Extension</a>
@@ -25,7 +25,7 @@
 </div>
 
 <div align="center">
-  <img alt="Azure DevOps builds" src="https://img.shields.io/azure-devops/build/dalenapps/6531387f-baea-443c-a284-0d0e786e56c3/43?color=0078d7&label=Master%20Build&logo=azure-devops&style=flat-square">
+  <img alt="Azure DevOps builds" src="https://img.shields.io/azure-devops/build/dalenapps/6531387f-baea-443c-a284-0d0e786e56c3/46?color=0078d7&label=Master%20Build&logo=azure-devops&style=flat-square">
   <img alt="Issues" src="https://img.shields.io/github/issues/joachimdalen/azdevops-pull-request-utils.svg?style=flat-square">
   <img alt="License" src="https://img.shields.io/github/license/joachimdalen/azdevops-pull-request-utils?style=flat-square">
 </div>
@@ -144,11 +144,11 @@ If you want to contribute code, I ask that you follow some guidelines.
 - `master` is only deployed to `PROD` and tagged with `v<extension_version>`
   - Pull requests are always squash merged into `master`
   - `master` is the only branch where GitHub releases are created for
-- `feature/*` and `bugfix/*` are deployed to `QA`. For deployment to `DEV` using local assets (only manifest changes are deployed to dev), the `Deploy to DEV instead of QA` option needs to be checked when running the deployment pipeline.
+- `feature/*` and `bugfix/*` are deployed to `DEV`.
 
-`QA` and `DEV` are private development and verfication environments (publications of the extensions.) Submit a new issue if you for some reason wish access to either of these.
+`DEV` is a private development and verfication environments (publications of the extensions.)
 
-**Note** Access to these are not given for your local development. Please publish your own development release.
+**Note** Access to this is not given for your local development. Please publish your own development release.
 
 <!-- LICENSE -->
 

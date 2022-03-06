@@ -4,14 +4,13 @@
   "id": "pull-request-utils-dev",
   "name": "Pull Request Utils - DEV",
   "public": false,
-  "version": "0.5.4",
+  "version": "1.0.0",
   "publisher": "JoachimDalen",
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
     }
   ],
-  "galleryFlags": ["Preview"],
   "description": "A task to manage pull requests. Includes posting comments on pull requests, checking if tags are assigned, assigning tags, updating the description",
   "categories": ["Azure Pipelines"],
   "tags": [
@@ -33,8 +32,21 @@
     "theme": "dark"
   },
   "links": {
-    "support": { "uri": "https://github.com/joachimdalen/azdevops-pull-request-utils" },
-    "privacypolicy": { "uri": "https://devops-extensions.github.io/docs/docs/privacy" }
+    "getstarted": {
+      "uri": "https://docs.devops-extensions.dev/docs/extensions/pull-request-utils"
+    },
+    "repository": {
+      "uri": "https://github.com/joachimdalen/azdevops-pull-request-utils"
+    },
+    "support": {
+      "uri": "https://github.com/joachimdalen/azdevops-pull-request-utils/issues"
+    },
+    "privacypolicy": {
+      "uri": "https://docs.devops-extensions.dev/docs/privacy"
+    },
+    "license": {
+      "uri": "https://github.com/joachimdalen/azdevops-pull-request-utils/blob/master/LICENSE"
+    }
   },
   "files": [
     {

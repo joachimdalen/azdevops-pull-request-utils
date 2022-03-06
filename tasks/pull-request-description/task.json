@@ -4,8 +4,8 @@
   "name": "PullRequestDescription",
   "friendlyName": "Pull Request Description",
   "description": "Update pull request descriptions during pipeline runs",
-  "helpMarkDown": "[Learn more about this task](https://marketplace.visualstudio.com/items?itemName=joachimdalen.pull-request-utils)",
-  "helpUrl": "https://marketplace.visualstudio.com/items?itemName=joachimdalen.pull-request-utils",
+  "helpMarkDown": "[Learn more about this task](https://docs.devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-description)",
+  "helpUrl": "https://docs.devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-description",
   "category": "Utility",
   "author": "Joachim Dalen",
   "version": {

@@ -1,0 +1,22 @@
+{
+  "name": "pull-request-status",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "precompile:dev": "rimraf ./dist && tsc -p .",
+    "precompile:prod": "rimraf ./dist && tsc -p .",
+    "compile:dev": "webpack --config webpack.config",
+    "compile:prod": "webpack --config webpack.config --mode production",
+    "test:integration": "mocha dist/tests/_suite.js",
+    "test:integration:coverage": "mocha dist/tests/_suite.js --reporter xunit --reporter-option output=ResultsFile.xml",
+    "lint": "eslint . --ignore-path ../../.eslintignore --ext ts",
+    "lint:fix": "eslint --fix . --ignore-path ../../.eslintignore --ext ts",
+    "clean": "rimraf ./dist"
+  },
+  "dependencies": {
+    "azure-devops-node-api": "^10.2.2",
+    "azure-pipelines-task-lib": "^3.1.10",
+    "pull-request-core": "^0.0.1",
+    "sync-request": "^6.1.0"
+  }
+}

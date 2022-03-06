@@ -1,0 +1,120 @@
+parameters:
+  - name: taskVersion
+    displayName: 'Task Version'
+    type: string
+    default: $(Task.Extension.Version)
+  - name: compileMode
+    displayName: 'Compile Mode'
+    type: string
+    default: dev
+    values:
+      - dev
+      - prod
+
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    exclude:
+      - .github/*
+      - .azext/*
+      - .vscode/*
+      - .ci/*
+      - docs/*
+pr: none
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+  isMaster: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
+  marketplaceServiceConnection: 'marketplace-joachim-dalen'
+
+stages:
+  - stage: 'run_tests'
+    displayName: Test & Build
+    jobs:
+      - job:
+        steps:
+          - template: .ci/install.template.yml
+          - template: .ci/build.template.yml
+            parameters:
+              compileMode: dev
+          - template: .ci/run-tests.template.yml
+
+  - stage: package_dev
+    displayName: '[DEV] Package'
+    dependsOn: 'run_tests'
+    condition: and(succeeded(), eq(variables.isMaster, false))
+    variables:
+      - group: 'mp-pull-request-utils-dev'
+    jobs:
+      - template: .ci/build-docs.template.yml
+        parameters:
+          extensionEnv: dev
+          generateVersionChangelog: false
+          taskVersion: ${{ parameters.taskVersion }}
+      - template: .ci/build-extension-artifact.template.yml
+        parameters:
+          compileMode: ${{ parameters.compileMode }}
+          extensionEnv: dev
+          taskVersion: ${{ parameters.taskVersion }}
+
+  - stage: publish_dev
+    displayName: '[DEV] Publish'
+    dependsOn: 'package_dev'
+    condition: and(succeeded(), eq(variables.isMaster, false))
+    variables:
+      - group: 'mp-pull-request-utils-dev'
+    jobs:
+      - template: .ci/publish-extension.template.yml
+        parameters:
+          pipelineEnv: pull-request-utils-dev-env
+          extensionVisibility: private
+
+  - stage: verify_changelog
+    dependsOn: 'run_tests'
+    condition: and(succeeded(), eq(variables.isMaster, true))
+    displayName: 'Check changelog'
+    jobs:
+      - job:
+        steps:
+          - task: GitGuardChanges@0
+            displayName: '[PROD] Verify changelog'
+            inputs:
+              sourceCommitHash: 'tag:v*'
+              matchPattern: '.azext/changelog.json'
+              targetCommitHash: 'HEAD'
+              matchStrategy: 'single'
+              changed: true
+              breakOnFailure: true
+
+  - stage: package_prod
+    displayName: '[PROD] Package'
+    dependsOn: 'verify_changelog'
+    condition: and(succeeded(), eq(variables.isMaster, true))
+    variables:
+      - group: 'mp-pull-request-utils-prod'
+    jobs:
+      - template: .ci/build-docs.template.yml
+        parameters:
+          extensionEnv: prod
+          taskVersion: ${{ parameters.taskVersion }}
+      - template: .ci/build-extension-artifact.template.yml
+        parameters:
+          compileMode: prod
+          extensionEnv: prod
+          taskVersion: ${{ parameters.taskVersion }}
+
+  - stage: publish_prod
+    displayName: '[PROD] Publish'
+    dependsOn: 'package_prod'
+    condition: and(succeeded(), eq(variables.isMaster, true))
+    variables:
+      - group: 'mp-pull-request-utils-prod'
+    jobs:
+      - template: .ci/publish-extension.template.yml
+        parameters:
+          pipelineEnv: pull-request-utils-prod-env
+          extensionVisibility: public_preview

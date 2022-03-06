@@ -1,0 +1,71 @@
+parameters:
+  - name: extensionEnv
+    default: dev
+    values:
+      - dev
+      - qa
+      - prod
+  - name: taskVersion
+    displayName: 'Task Version'
+    type: string
+    default: $(Task.Extension.Version)
+  - name: generateVersionChangelog
+    type: boolean
+    default: true
+jobs:
+  - job: 'build_docs_${{ parameters.extensionEnv }}'
+    displayName: 'Build docs'
+    steps:
+      - task: TfxInstaller@3
+        displayName: 'Install Tfx'
+        inputs:
+          version: 'v0.10.0'
+      - task: QueryAzureDevOpsExtensionVersion@3
+        displayName: 'Query existing version'
+        inputs:
+          connectTo: 'VsTeam'
+          connectedServiceName: $(marketplaceServiceConnection)
+          publisherId: '$(PublisherID)'
+          extensionId: '$(ExtensionID)'
+          versionAction: 'Patch'
+          outputVariable: 'Task.Extension.Version'
+      - template: install.template.yml
+        parameters:
+          nodeVersion: '16.x'
+      - task: Npm@1
+        displayName: 'Build changelog'
+        inputs:
+          command: custom
+          customCommand: run changelog:prod
+      - task: Npm@1
+        displayName: 'Build single version changelog'
+        condition: eq(${{ parameters.generateVersionChangelog }}, true)
+        inputs:
+          command: custom
+          customCommand: run changelog:prod:version -- --version ${{ parameters.taskVersion }}
+      - task: Npm@1
+        displayName: 'Build readme'
+        inputs:
+          command: custom
+          customCommand: run docs:build
+      - task: Bash@3
+        displayName: 'Move artifacts'
+        inputs:
+          targetType: inline
+          script: |
+            mkdir $(Build.ArtifactStagingDirectory)/docs/
+            cp $(Build.SourcesDirectory)/marketplace/docs/CHANGELOG.md $(Build.ArtifactStagingDirectory)/docs/
+            cp $(Build.SourcesDirectory)/marketplace/docs/README.md $(Build.ArtifactStagingDirectory)/docs/
+      - task: Bash@3
+        displayName: 'Move version changelog'
+        condition: eq(${{ parameters.generateVersionChangelog }}, true)
+        inputs:
+          targetType: inline
+          script: |
+            mv $(Build.SourcesDirectory)/marketplace/docs/CHANGELOG-RELEASE.md $(Build.ArtifactStagingDirectory)/docs/
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish docs artifact'
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)/docs'
+          artifactName: 'docs'
+          publishLocation: pipeline

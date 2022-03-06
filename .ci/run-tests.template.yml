@@ -1,0 +1,31 @@
+steps:
+  - task: Bash@3
+    displayName: 'Fix path for tests'
+    inputs:
+      targetType: 'inline'
+      script: |
+        mkdir -p /home/vsts/azure-pipelines-task-lib/_download/node10/node-v10.21.0-linux-x64/bin/
+        touch /home/vsts/azure-pipelines-task-lib/_download/node10.completed
+        ln -s $(Agent.ToolsDirectory)/node/10.21.0/x64/bin/node /home/vsts/azure-pipelines-task-lib/_download/node10/node-v10.21.0-linux-x64/bin/node
+  - task: Npm@1
+    displayName: 'Run tests'
+    inputs:
+      command: custom
+      customCommand: 'run test:integration:coverage'
+  # - task: Bash@3
+  #   displayName: 'Move coverage files'
+  #   inputs:
+  #     targetType: 'inline'
+  #     script: |
+  #       cp -r $(Build.SourcesDirectory)/coverage $(Build.ArtifactStagingDirectory)
+  - task: PublishTestResults@2
+    displayName: 'Publish test results'
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '**/**/ResultsFile.xml'
+  # - task: PublishCodeCoverageResults@1
+  #   displayName: 'Publish coverage'
+  #   inputs:
+  #     codeCoverageTool: 'Cobertura'
+  #     summaryFileLocation: '$(Build.ArtifactStagingDirectory)/coverage/cobertura-coverage.xml'
+  #     pathToSources: '$(Build.SourcesDirectory)/src'

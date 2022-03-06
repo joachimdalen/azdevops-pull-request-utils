@@ -1,0 +1,72 @@
+parameters:
+  - name: artifact
+    default: extension
+  - name: extensionEnv
+    default: dev
+    values:
+      - dev
+      - qa
+      - prod
+  - name: taskVersion
+    displayName: 'Task Version'
+    type: string
+    default: $(Task.Extension.Version)
+  - name: compileMode
+    displayName: 'Compile Mode'
+    type: string
+    default: dev
+jobs:
+  - job:
+    dependsOn: 'build_docs_${{ parameters.extensionEnv }}'
+    displayName: 'Build extension'
+    steps:
+      - task: DownloadPipelineArtifact@2
+        displayName: 'Download docs'
+        inputs:
+          artifactName: 'docs'
+      - task: Bash@3
+        displayName: 'Configure docs'
+        inputs:
+          targetType: inline
+          script: |
+            cp $(Pipeline.Workspace)/CHANGELOG.md $(Build.SourcesDirectory)/marketplace/docs/
+            cp $(Pipeline.Workspace)/README.md $(Build.SourcesDirectory)/marketplace/docs/
+      - task: TfxInstaller@3
+        displayName: 'Install Tfx'
+        inputs:
+          version: 'v0.10.0'
+      - task: QueryAzureDevOpsExtensionVersion@3
+        displayName: 'Query existing version'
+        inputs:
+          connectTo: 'VsTeam'
+          connectedServiceName: $(marketplaceServiceConnection)
+          publisherId: '$(PublisherID)'
+          extensionId: '$(ExtensionID)'
+          versionAction: 'Patch'
+          outputVariable: 'Task.Extension.Version'
+      - template: install.template.yml
+        parameters:
+          nodeVersion: '10.21.0'
+      - template: build.template.yml
+        parameters:
+          compileMode: ${{ parameters.compileMode }}
+      - task: PackageAzureDevOpsExtension@3
+        displayName: 'Package extension'
+        inputs:
+          rootFolder: '$(Build.SourcesDirectory)'
+          patternManifest: 'vss-extension.${{ parameters.extensionEnv }}.json'
+          updateTasksVersion: false
+          extensionVersion: ${{ parameters.taskVersion }}
+      - task: Bash@3
+        displayName: 'Move artifacts'
+        inputs:
+          targetType: inline
+          script: |
+            mkdir $(Build.ArtifactStagingDirectory)/extension/
+            mv $(Build.SourcesDirectory)/*.vsix $(Build.ArtifactStagingDirectory)/extension/
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish ${{ parameters.artifact }} artifacts'
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)/extension'
+          artifactName: '${{ parameters.artifact }}'
+          publishLocation: pipeline

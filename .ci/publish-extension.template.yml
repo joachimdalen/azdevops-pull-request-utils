@@ -1,0 +1,38 @@
+parameters:
+  - name: pipelineEnv
+  - name: artifact
+    default: extension
+  - name: extensionVisibility
+    type: string
+    default: private
+    values:
+      - default
+      - private
+      - private_preview
+      - public
+      - public_preview
+jobs:
+  - deployment:
+    displayName: 'Publish Extension'
+    environment: ${{ parameters.pipelineEnv }}
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - download: none
+            - download: 'current'
+              displayName: 'Download extension'
+              artifact: ${{ parameters.artifact }}
+            - task: TfxInstaller@3
+              displayName: 'Install Tfx'
+              inputs:
+                version: 'v0.10.0'
+            - task: PublishAzureDevOpsExtension@3
+              displayName: "Publish to Marketplace"
+              inputs:
+                connectTo: 'VsTeam'
+                connectedServiceName: 'marketplace-joachim-dalen'
+                fileType: 'vsix'
+                vsixFile: '$(Pipeline.Workspace)/**/*.vsix'
+                updateTasksVersion: false
+                extensionVisibility: ${{ parameters.extensionVisibility }}

@@ -29,7 +29,7 @@ jobs:
           extensionId: '$(ExtensionID)'
           versionAction: 'Patch'
           outputVariable: 'Task.Extension.Version'
-      - template: install.template.yml
+      - template: install-and-build.template.yml
         parameters:
           nodeVersion: '16.x'
       - task: Npm@1

@@ -37,8 +37,7 @@ stages:
     jobs:
       - job:
         steps:
-          - template: .ci/install.template.yml
-          - template: .ci/build.template.yml
+          - template: .ci/install-and-build.template.yml
             parameters:
               compileMode: dev
           - template: .ci/run-tests.template.yml

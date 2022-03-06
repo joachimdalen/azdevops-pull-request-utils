@@ -103,7 +103,7 @@ stages:
           taskVersion: ${{ parameters.taskVersion }}
       - template: .ci/build-extension-artifact.template.yml
         parameters:
-          compileMode: ${{ parameters.compileMode }}
+          compileMode: prod
           extensionEnv: prod
           taskVersion: ${{ parameters.taskVersion }}
 

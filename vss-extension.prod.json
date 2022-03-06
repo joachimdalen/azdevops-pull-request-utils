@@ -3,7 +3,7 @@
   "manifestVersion": 1,
   "id": "pull-request-utils",
   "name": "Pull Request Utils",
-  "version": "0.5.5",
+  "version": "1.0.0",
   "publisher": "JoachimDalen",
   "targets": [
     {

@@ -11,7 +11,7 @@
     "build": "rimraf ./dist && tsc -d",
     "dpostbuild": "npm pack"
   },
-  "peerDependencies": {
+  "dependencies": {
     "azure-devops-node-api": "^10.2.2",
     "azure-pipelines-task-lib": "^3.1.10",
     "sync-request": "^6.1.0"

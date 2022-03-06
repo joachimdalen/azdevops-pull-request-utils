@@ -24,7 +24,7 @@ steps:
     displayName: 'Bootstrap Project'
     inputs:
       targetType: 'inline'
-      script: 'npx lerna bootstrap'
+      script: 'npx lerna bootstrap --scope pull-request-core'
   - task: Npm@1
     displayName: 'Compile Shared'
     inputs:
@@ -35,7 +35,7 @@ steps:
     displayName: 'Bootstrap Project'
     inputs:
       targetType: 'inline'
-      script: 'npx lerna bootstrap'
+      script: 'npx lerna bootstrap --ignore pull-request-core'
   - task: Npm@1
     displayName: 'Compile - ${{ parameters.compileMode }}'
     inputs:

@@ -26,10 +26,10 @@ steps:
       targetType: 'inline'
       script: 'npx lerna bootstrap'
   - task: Npm@1
-    displayName: 'Compile Shared - ${{ parameters.compileMode }}'
+    displayName: 'Compile Shared'
     inputs:
       command: custom
-      customCommand: 'run compile:${{ parameters.compileMode }} --scope pull-request-core'
+      customCommand: 'run compile:shared'
   # Need a second bootstrap for linking the core module
   - task: Bash@3
     displayName: 'Bootstrap Project'
@@ -40,4 +40,4 @@ steps:
     displayName: 'Compile - ${{ parameters.compileMode }}'
     inputs:
       command: custom
-      customCommand: 'run compile:${{ parameters.compileMode }} --ignore pull-request-core'
+      customCommand: 'run compile:${{ parameters.compileMode }}'

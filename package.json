@@ -37,8 +37,8 @@
     "lint": "lerna run lint --parallel",
     "clean": "lerna run clean --parallel",
     "compile:shared": "lerna run build --scope pull-request-core",
-    "compile:dev": "npm run compile:shared && lerna run compile:dev --parallel",
-    "compile:prod": "npm run compile:shared && lerna run compile:prod --parallel",
+    "compile:dev": "lerna run compile:dev --parallel --ignore pull-request-core",
+    "compile:prod": "lerna run compile:prod --parallel --ignore pull-request-core",
     "lint:fix": "lerna run lint:fix --parallel",
     "test:integration": "lerna run test:integration --parallel",
     "test:integration:coverage": "lerna run test:integration:coverage --parallel"

@@ -5,13 +5,13 @@
   "description": "Shared code for all pull request utils tasks",
   "main": "dist/index.js",
   "files": [
-    "dist"
+    "dist/*"
   ],
   "scripts": {
     "build": "rimraf ./dist && tsc -d",
-    "postbuild": "npm pack"
+    "dpostbuild": "npm pack"
   },
-  "dependencies": {
+  "peerDependencies": {
     "azure-devops-node-api": "^10.2.2",
     "azure-pipelines-task-lib": "^3.1.10",
     "sync-request": "^6.1.0"

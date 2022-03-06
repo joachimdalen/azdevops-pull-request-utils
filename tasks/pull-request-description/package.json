@@ -16,7 +16,7 @@
   "dependencies": {
     "azure-devops-node-api": "^10.2.2",
     "azure-pipelines-task-lib": "^3.1.10",
-    "pull-request-core": "file:../../shared/pull-request-core/pull-request-core-0.0.1.tgz",
+    "pull-request-core": "file:../../shared/pull-request-core",
     "sync-request": "^6.1.0"
   }
 }

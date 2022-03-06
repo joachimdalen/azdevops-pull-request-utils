@@ -10,8 +10,8 @@
   "author": "Joachim Dalen",
   "version": {
     "Major": 0,
-    "Minor": 2,
-    "Patch": 5
+    "Minor": 3,
+    "Patch": 0
   },
   "instanceNameFormat": "$(Action)",
   "inputs": [

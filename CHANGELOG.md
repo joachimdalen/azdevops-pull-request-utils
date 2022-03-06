@@ -1,12 +1,56 @@
 # Changelog
 
-## 0.6.0 (2022-02-XX)
+## 1.0.0 (2022-03-XX)
 
 ### 🛠️ Maintenance (1)
+
+- Align all task versions to `0.3.0`
+
+### 📦 Module changes
+
+### 🛠️ Maintenance (5)
 
 #### `pull-request-core@0.0.1`
 
 - Added module with shared code
+
+#### `PullRequestDescription@0.3.0`
+
+- Update dependencies
+
+#### `PullRequestComments@0.3.0`
+
+- Update dependencies
+
+#### `PullRequestStatus@0.3.0`
+
+- Update dependencies
+
+#### `PullRequestTags@0.3.0`
+
+- Update dependencies
+
+### 📝 Documentation (5)
+
+#### `pull-request-core@0.0.1`
+
+- Update docs
+
+#### `PullRequestDescription@0.3.0`
+
+- Update docs
+
+#### `PullRequestComments@0.3.0`
+
+- Update docs
+
+#### `PullRequestStatus@0.3.0`
+
+- Update docs
+
+#### `PullRequestTags@0.3.0`
+
+- Update docs
 
 ---
 

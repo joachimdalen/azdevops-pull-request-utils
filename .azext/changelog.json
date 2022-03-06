@@ -1,7 +1,13 @@
 [
   {
-    "publishDate": "2022-02-XX",
-    "version": "0.6.0",
+    "publishDate": "2022-03-XX",
+    "version": "1.0.0",
+    "changes": [
+      {
+        "type": "maint",
+        "description": "Align all task versions to `0.3.0`"
+      }
+    ],
     "modules": [
       {
         "name": "pull-request-core",
@@ -10,6 +16,66 @@
           {
             "description": "Added module with shared code",
             "type": "maint"
+          },
+          {
+            "description": "Update docs",
+            "type": "docs"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestDescription",
+        "version": "0.3.0",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Update docs",
+            "type": "docs"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestComments",
+        "version": "0.3.0",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Update docs",
+            "type": "docs"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestStatus",
+        "version": "0.3.0",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Update docs",
+            "type": "docs"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestTags",
+        "version": "0.3.0",
+        "changes": [
+          {
+            "description": "Update dependencies",
+            "type": "maint"
+          },
+          {
+            "description": "Update docs",
+            "type": "docs"
           }
         ]
       }

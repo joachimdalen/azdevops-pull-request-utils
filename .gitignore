@@ -13,3 +13,4 @@ ResultsFile.xml
 README-GEN.md
 marketplace/docs/*.md
 docs/generated
+*.tgz

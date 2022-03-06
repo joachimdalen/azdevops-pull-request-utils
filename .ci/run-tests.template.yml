@@ -9,10 +9,9 @@ steps:
         ln -s $(Agent.ToolsDirectory)/node/10.21.0/x64/bin/node /home/vsts/azure-pipelines-task-lib/_download/node10/node-v10.21.0-linux-x64/bin/node
   - task: Npm@1
     displayName: 'Run tests'
-    retryCountOnTaskFailure: 1
     inputs:
       command: custom
-      customCommand: 'run test:integration:coverage'
+      customCommand: 'run test:integration'
   # - task: Bash@3
   #   displayName: 'Move coverage files'
   #   inputs:

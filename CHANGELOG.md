@@ -1,10 +1,13 @@
 # Changelog
 
-## 1.0.0 (2022-03-XX)
+## 1.0.0 (2022-03-12)
 
 ### 🛠️ Maintenance (1)
 
-- Align all task versions to `0.3.0`
+- Align all task versions to `0.4.0`
+  - Changed in
+    - [PR#2 - Open source extension](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/2)
+    - [PR#3 - Add repository to manifest](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/3)
 
 ### 📦 Module changes
 
@@ -14,19 +17,19 @@
 
 - Added module with shared code
 
-#### `PullRequestDescription@0.3.0`
+#### `PullRequestDescription@0.4.0`
 
 - Update dependencies
 
-#### `PullRequestComments@0.3.0`
+#### `PullRequestComments@0.4.0`
 
 - Update dependencies
 
-#### `PullRequestStatus@0.3.0`
+#### `PullRequestStatus@0.4.0`
 
 - Update dependencies
 
-#### `PullRequestTags@0.3.0`
+#### `PullRequestTags@0.4.0`
 
 - Update dependencies
 
@@ -36,19 +39,19 @@
 
 - Update docs
 
-#### `PullRequestDescription@0.3.0`
+#### `PullRequestDescription@0.4.0`
 
 - Update docs
 
-#### `PullRequestComments@0.3.0`
+#### `PullRequestComments@0.4.0`
 
 - Update docs
 
-#### `PullRequestStatus@0.3.0`
+#### `PullRequestStatus@0.4.0`
 
 - Update docs
 
-#### `PullRequestTags@0.3.0`
+#### `PullRequestTags@0.4.0`
 
 - Update docs
 

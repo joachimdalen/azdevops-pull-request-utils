@@ -5,7 +5,8 @@
     "changes": [
       {
         "type": "maint",
-        "description": "Align all task versions to `0.4.0`"
+        "description": "Align all task versions to `0.4.0`",
+        "pullRequest": [2, 3]
       }
     ],
     "modules": [

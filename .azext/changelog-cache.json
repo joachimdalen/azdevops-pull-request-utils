@@ -1,4 +1,19 @@
 {
   "issues": [],
-  "pullRequests": []
+  "pullRequests": [
+    {
+      "id": 872397756,
+      "number": 2,
+      "submitter": "joachimdalen",
+      "title": "Open source extension",
+      "url": "https://github.com/joachimdalen/azdevops-pull-request-utils/pull/2"
+    },
+    {
+      "id": 872402943,
+      "number": 3,
+      "submitter": "joachimdalen",
+      "title": "Add repository to manifest",
+      "url": "https://github.com/joachimdalen/azdevops-pull-request-utils/pull/3"
+    }
+  ]
 }

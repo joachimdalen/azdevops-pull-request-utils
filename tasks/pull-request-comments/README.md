@@ -6,9 +6,7 @@
 
 ---
 
-## Options
-
-### Example
+## YAML Snippet
 
 ```yaml
 - task: PullRequestComments@0
@@ -24,21 +22,21 @@
 
 ```
 
-### All Options
+## Arguments
 
-| Option                | Default Value                         | Required | Help                                                                                                                                                                 | Options                                           |
-| :-------------------- | :------------------------------------ | :------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------ |
-| `action`              | `create`                              |    ❌    | Action to perform                                                                                                                                                    | `create`, `createOrUpdate`, `update`              |
-| `skipIfCommentExists` | `true`                                |    ❌    | If the comment exists on the pull request, do not post it again                                                                                                      | --                                                |
-| `commentId`           | --                                    |    ❌    | Is used to uniqely identify the comment when using the same task multiple times in the same pipeline                                                                 | --                                                |
-| `status`              | `Active`                              |    ❌    | Post the comment with a given status                                                                                                                                 | `Active`, `Fixed`, `WontFix`, `Closed`, `Pending` |
-| `content`             | --                                    |    ✅    | The content of the comment. For Markdown syntax, see [Syntax guidance for basic Markdown usage](http://go.microsoft.com/fwlink/?LinkId=823918)                       | --                                                |
-| `useDefined`          | `false`                               |    ❌    | If set, overrides the value from `System.PullRequest.PullRequestId`                                                                                                  | --                                                |
-| `pullRequestId`       | `$(System.PullRequest.PullRequestId)` |    ❌    | If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId` | --                                                |
-| `type`                | `Text`                                |    ❌    | The type of comment. `Text` represents a regular user comment while `System` indicates a system message                                                              | `Text`, `System`                                  |
+| Argument                                                     | Description                                                                                                                                                                                                                                     |
+| :----------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action` <br />Action                                        | **(Optional)** Action to perform <br /> Options: `create`, `createOrUpdate`, `update` <br /> Default value: `create`                                                                                                                            |
+| `skipIfCommentExists` <br />Do not post comment if it exists | **(Optional)** If the comment exists on the pull request, do not post it again <br /> Default value: `true`                                                                                                                                     |
+| `commentId` <br />Comment Id                                 | **(Optional)** Is used to uniqely identify the comment when using the same task multiple times in the same pipeline <br />                                                                                                                      |
+| `status` <br />Comment Status                                | **(Optional)** Post the comment with a given status <br /> Options: `Active`, `Fixed`, `WontFix`, `Closed`, `Pending` <br /> Default value: `Active`                                                                                            |
+| `content` <br />Comment Content                              | **(Required)** The content of the comment. For Markdown syntax, see [Syntax guidance for basic Markdown usage](http://go.microsoft.com/fwlink/?LinkId=823918) <br />                                                                            |
+| `useDefined` <br />Use defined id                            | **(Optional)** If set, overrides the value from `System.PullRequest.PullRequestId` <br />                                                                                                                                                       |
+| `pullRequestId` <br />Pull Request Id                        | **(Optional)** If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId` <br /> Default value: `$(System.PullRequest.PullRequestId)` |
+| `type` <br />Comment Type                                    | **(Optional)** The type of comment. `Text` represents a regular user comment while `System` indicates a system message <br /> Options: `Text`, `System` <br /> Default value: `Text`                                                            |
 
 
-## Examples
+### Examples
 
 ## Posting a comment
 
@@ -56,7 +54,7 @@ steps:
 
 after a run against a pull request it will post the comment:
 
-![simple-comment](../../marketplace/docs/images/simple-pr-comment.png)
+![simple-pr-comment.png](../../marketplace/docs/images/simple-pr-comment.png)
 
 
 ## Posting a comment with markdown
@@ -81,7 +79,7 @@ steps:
 
 after a run against a pull request it will post the comment:
 
-![simple-comment](../../marketplace/docs/images/markdown-pr-comment.png)
+![markdown-pr-comment.png](../../marketplace/docs/images/markdown-pr-comment.png)
 
 
 ## Posting multiple comments

@@ -8,8 +8,7 @@
     "dist/*"
   ],
   "scripts": {
-    "build": "rimraf ./dist && tsc -d",
-    "dpostbuild": "npm pack"
+    "build": "rimraf ./dist && tsc -d"
   },
   "dependencies": {
     "azure-devops-node-api": "^10.2.2",

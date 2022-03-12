@@ -5,7 +5,7 @@
   "description": "Shared code for all pull request utils tasks",
   "main": "dist/index.js",
   "files": [
-    "dist"
+    "dist/*"
   ],
   "scripts": {
     "build": "rimraf ./dist && tsc -d"

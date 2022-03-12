@@ -10,7 +10,7 @@
   "author": "Joachim Dalen",
   "version": {
     "Major": 0,
-    "Minor": 3,
+    "Minor": 4,
     "Patch": 0
   },
   "instanceNameFormat": "$(Action)",
@@ -94,9 +94,6 @@
   ],
   "execution": {
     "Node10": {
-      "target": "index.js"
-    },
-    "Node": {
       "target": "index.js"
     }
   }

@@ -1,11 +1,11 @@
 [
   {
-    "publishDate": "2022-03-XX",
+    "publishDate": "2022-03-12",
     "version": "1.0.0",
     "changes": [
       {
         "type": "maint",
-        "description": "Align all task versions to `0.3.0`"
+        "description": "Align all task versions to `0.4.0`"
       }
     ],
     "modules": [
@@ -25,7 +25,7 @@
       },
       {
         "name": "PullRequestDescription",
-        "version": "0.3.0",
+        "version": "0.4.0",
         "changes": [
           {
             "description": "Update dependencies",
@@ -39,7 +39,7 @@
       },
       {
         "name": "PullRequestComments",
-        "version": "0.3.0",
+        "version": "0.4.0",
         "changes": [
           {
             "description": "Update dependencies",
@@ -53,7 +53,7 @@
       },
       {
         "name": "PullRequestStatus",
-        "version": "0.3.0",
+        "version": "0.4.0",
         "changes": [
           {
             "description": "Update dependencies",
@@ -67,7 +67,7 @@
       },
       {
         "name": "PullRequestTags",
-        "version": "0.3.0",
+        "version": "0.4.0",
         "changes": [
           {
             "description": "Update dependencies",

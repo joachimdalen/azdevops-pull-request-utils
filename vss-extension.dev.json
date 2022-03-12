@@ -31,6 +31,10 @@
     "color": "#DB6900",
     "theme": "dark"
   },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/joachimdalen/azdevops-pull-request-utils"
+  },
   "links": {
     "getstarted": {
       "uri": "https://docs.devops-extensions.dev/docs/extensions/pull-request-utils"

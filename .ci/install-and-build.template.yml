@@ -1,0 +1,43 @@
+parameters:
+  - name: nodeVersion
+    default: '10.21.0'
+  - name: compileMode
+    displayName: 'Compile Mode'
+    type: string
+    default: dev
+
+steps:
+  - task: NodeTool@0
+    displayName: 'Install node'
+    inputs:
+      versionSpec: ${{ parameters.nodeVersion }}
+  - task: Cache@2
+    displayName: Cache npm
+    inputs:
+      key: 'npm | "$(Agent.OS)" | "${{ parameters.nodeVersion }}" | $(Build.SourcesDirectory)/package-lock.json'
+      path: '$(npm_config_cache)'
+  - task: Npm@1
+    displayName: 'Install dependencies'
+    inputs:
+      command: ci
+  - task: Bash@3
+    displayName: 'Bootstrap Project'
+    inputs:
+      targetType: 'inline'
+      script: 'npx lerna bootstrap --scope pull-request-core'
+  - task: Npm@1
+    displayName: 'Compile Shared'
+    inputs:
+      command: custom
+      customCommand: 'run compile:shared'
+  # Need a second bootstrap for linking the core module
+  - task: Bash@3
+    displayName: 'Bootstrap Project'
+    inputs:
+      targetType: 'inline'
+      script: 'npx lerna bootstrap --ignore pull-request-core'
+  - task: Npm@1
+    displayName: 'Compile - ${{ parameters.compileMode }}'
+    inputs:
+      command: custom
+      customCommand: 'run compile:${{ parameters.compileMode }}'

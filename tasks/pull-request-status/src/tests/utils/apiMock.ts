@@ -7,9 +7,6 @@ export function getMock(
 ): any {
   const createStatusFunc = createStatus || [];
   const deleteStatusFunc = deleteStatus === undefined ? [] : deleteStatus;
-  const getFunc = getStatuses || {
-    id: 1
-  };
 
   return {
     getBearerHandler: function () {
@@ -43,7 +40,7 @@ export function getMock(
               pullRequestId: number,
               project?: string
             ) {
-              return Promise.resolve(getFunc);
+              return Promise.resolve(getStatuses);
             }
           });
         }

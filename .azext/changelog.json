@@ -1,5 +1,25 @@
 [
   {
+    "publishDate": "2022-03-XX",
+    "version": "1.1.0",
+    "modules": [
+      {
+        "name": "PullRequestStatus",
+        "version": "0.5.0",
+        "changes": [
+          {
+            "type": "fix",
+            "description": "Fixed an issue where action `Delete` did not load the correct status"
+          },
+          {
+            "type": "feature",
+            "description": "Added new argument `whenState` to control when a status update should be applied"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "publishDate": "2022-03-12",
     "version": "1.0.0",
     "changes": [

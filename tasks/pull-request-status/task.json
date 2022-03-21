@@ -78,8 +78,7 @@
       "type": "pickList",
       "label": "When current status is in state",
       "helpMarkDown": "Only update the state of the status when the existing state is one of these",
-      "defaultValue": "notSet",
-      "required": true,
+      "required": false,
       "options": {
         "notSet": "Not Set",
         "error": "Error",

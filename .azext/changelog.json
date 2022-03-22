@@ -9,11 +9,14 @@
         "changes": [
           {
             "type": "fix",
-            "description": "Fixed an issue where action `Delete` did not load the correct status"
+            "description": "Fixed an issue where action `Delete` did not load the correct status",
+            "pullRequest": 8
           },
           {
             "type": "feature",
-            "description": "Added new argument `whenState` to control when a status update should be applied"
+            "description": "Added new argument `whenState` to control when a status update should be applied",
+            "pullRequest": 8,
+            "issue": 7
           }
         ]
       }

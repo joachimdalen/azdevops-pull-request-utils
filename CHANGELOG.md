@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.1.0 (2022-03-XX)
+
+### 🐛 Fixes (1)
+
+#### `PullRequestStatus@0.5.0`
+
+- Fixed an issue where action `Delete` did not load the correct status
+  - Fixed in [PR#8 - Add option to conditionally update status](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/8)
+
+### 🚀 Features (1)
+
+#### `PullRequestStatus@0.5.0`
+
+- Added new argument `whenState` to control when a status update should be applied
+  - Suggested in [GH#7 - Feature: Update PullRequestStatus only if the status is fulfilled](https://github.com/joachimdalen/azdevops-pull-request-utils/issues/7)
+  - Added in [PR#8 - Add option to conditionally update status](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/8)
+
+## 🌟 Contributors
+
+Thank you to the following for contributing to the latest release
+
+- [@knoxi](https://github.com/knoxi)
+
+---
+
 ## 1.0.0 (2022-03-12)
 
 ### 🛠️ Maintenance (1)

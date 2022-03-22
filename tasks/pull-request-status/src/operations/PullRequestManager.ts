@@ -13,7 +13,6 @@ export class PullRequestManager {
     const pullRequestId = getPullRequestId(useDefinedPrId, 'pullRequestId', useDefinedPrId);
     const action = tl.getInput('action', true);
 
-    console.log('Started');
     if (pullRequestId === 0) {
       tl.warning('Pull request id is not set');
       tl.setResult(tl.TaskResult.Skipped, 'Pull request id is not set');
@@ -23,7 +22,6 @@ export class PullRequestManager {
     switch (action) {
       case 'Create':
       case 'Update':
-        console.log('Triggering');
         await this.createStatus(gitApi, repositoryId, pullRequestId, action === 'Update');
         break;
       case 'Delete':

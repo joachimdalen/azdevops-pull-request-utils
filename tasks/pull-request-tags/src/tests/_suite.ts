@@ -3,6 +3,8 @@ import * as ttm from 'azure-pipelines-task-lib/mock-test';
 import * as path from 'path';
 
 describe('PullRequestTags Suite', function () {
+  this.retries(2);
+
   before(function () {
     process.env['SYSTEM_TEAMFOUNDATIONCOLLECTIONURI'] = 'http://localhost/someproject';
     process.env['BUILD_REPOSITORY_ID'] = 'a5253ab2-00bf-4ce9-824a-d3449b1f49e1';

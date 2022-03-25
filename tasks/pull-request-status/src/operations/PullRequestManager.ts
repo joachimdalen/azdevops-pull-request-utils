@@ -4,7 +4,7 @@ import {
   GitStatusState
 } from 'azure-devops-node-api/interfaces/GitInterfaces';
 import * as tl from 'azure-pipelines-task-lib/task';
-import { getPullRequestId,getWebApi } from 'pull-request-core';
+import { getPullRequestId, getWebApi } from 'pull-request-core';
 export class PullRequestManager {
   public async manageStatus(): Promise<void> {
     const gitApi = await getWebApi().getGitApi();
@@ -22,7 +22,7 @@ export class PullRequestManager {
     switch (action) {
       case 'Create':
       case 'Update':
-        await this.createStatus(gitApi, repositoryId, pullRequestId);
+        await this.createStatus(gitApi, repositoryId, pullRequestId, action === 'Update');
         break;
       case 'Delete':
         await this.deleteStatus(gitApi, repositoryId, pullRequestId);
@@ -30,11 +30,8 @@ export class PullRequestManager {
     }
   }
 
-  private createPayload(): GitPullRequestStatus {
+  private mapState(state: string): GitStatusState {
     let status: GitStatusState = GitStatusState.NotSet;
-    const state = tl.getInput('state', true);
-    const name = tl.getInput('name', true);
-    const description = tl.getInput('description');
 
     switch (state) {
       case 'notSet':
@@ -57,6 +54,14 @@ export class PullRequestManager {
         break;
     }
 
+    return status;
+  }
+
+  private createPayload(): GitPullRequestStatus {
+    const state = tl.getInput('state', true);
+    const name = tl.getInput('name', true);
+    const description = tl.getInput('description');
+    const status = this.mapState(state);
     const payload: GitPullRequestStatus = {
       state: status,
       context: {
@@ -69,9 +74,39 @@ export class PullRequestManager {
     return payload;
   }
 
-  private async createStatus(gitApi: IGitApi, repositoryId: string, pullRequestId: number) {
+  private async createStatus(
+    gitApi: IGitApi,
+    repositoryId: string,
+    pullRequestId: number,
+    isUpdate: boolean
+  ) {
     try {
       const action = tl.getInput('action');
+      if (isUpdate) {
+        const whenState = tl.getDelimitedInput('whenState', ',')?.map(x => x.trim());
+        if (whenState !== undefined && whenState.length > 0) {
+          const existingStatuses = await gitApi.getPullRequestStatuses(repositoryId, pullRequestId);
+          const name = tl.getInput('name', true);
+          const currentStatus = existingStatuses?.find(
+            x => x.context?.genre === 'pull-request-utils' && x.context?.name === name
+          );
+          if (currentStatus !== undefined) {
+            const mappedStaus = whenState.map(this.mapState);
+            if (!mappedStaus.includes(currentStatus.state)) {
+              tl.setResult(
+                tl.TaskResult.Succeeded,
+                `Skipping updating state. ${
+                  GitStatusState[currentStatus.state]
+                } is not in any of the updatable states ${mappedStaus
+                  .map(x => GitStatusState[x])
+                  .join(',')}`
+              );
+              return;
+            }
+          }
+        }
+      }
+
       const createdStatus = await gitApi.createPullRequestStatus(
         this.createPayload(),
         repositoryId,
@@ -87,10 +122,11 @@ export class PullRequestManager {
     }
   }
   private async deleteStatus(gitApi: IGitApi, repositoryId: string, pullRequestId: number) {
+    const name = tl.getInput('name', true);
     const existingStatuses = await gitApi.getPullRequestStatuses(repositoryId, pullRequestId);
 
     const thisStatus = existingStatuses?.filter(
-      x => x.context.genre === '' && x.context.name === ''
+      x => x.context.genre === 'pull-request-utils' && x.context.name === name
     );
 
     if (thisStatus?.length === 0) {

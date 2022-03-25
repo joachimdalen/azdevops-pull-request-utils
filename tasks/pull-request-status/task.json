@@ -10,7 +10,7 @@
   "author": "Joachim Dalen",
   "version": {
     "Major": 0,
-    "Minor": 4,
+    "Minor": 5,
     "Patch": 0
   },
   "instanceNameFormat": "$(Action)",
@@ -72,6 +72,25 @@
       "defaultValue": "$(System.PullRequest.PullRequestId)",
       "helpMarkDown": "If no id is given, the value from `System.PullRequest.PullRequestId` is taken. If a value is given, this overrides the value from `System.PullRequest.PullRequestId`",
       "visibleRule": "useDefined = true"
+    },
+    {
+      "name": "whenState",
+      "type": "pickList",
+      "label": "When current status is in state",
+      "helpMarkDown": "Only update the state of the status when the existing state is one of these",
+      "required": false,
+      "options": {
+        "notSet": "Not Set",
+        "error": "Error",
+        "failed": "Failed",
+        "notApplicable": "Not Applicable",
+        "pending": "Pending",
+        "succeeded": "Succeeded"
+      },
+      "visibleRule": "action = Update",
+      "properties": {
+        "MultiSelect": "True"
+      }
     }
   ],
   "execution": {

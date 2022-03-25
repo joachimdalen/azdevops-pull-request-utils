@@ -1,6 +1,21 @@
 {
-  "issues": [],
+  "issues": [
+    {
+      "id": 1175102696,
+      "number": 7,
+      "submitter": "knoxi",
+      "title": "Update PullRequestStatus only if the status is fulfilled",
+      "url": "https://github.com/joachimdalen/azdevops-pull-request-utils/issues/7"
+    }
+  ],
   "pullRequests": [
+    {
+      "id": 886324202,
+      "number": 8,
+      "submitter": "joachimdalen",
+      "title": "Add option to conditionally update status",
+      "url": "https://github.com/joachimdalen/azdevops-pull-request-utils/pull/8"
+    },
     {
       "id": 872397756,
       "number": 2,

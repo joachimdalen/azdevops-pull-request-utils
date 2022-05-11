@@ -8,12 +8,14 @@
 
 - Added option `keepAppendedContent` to always keep the last appended content
   - Suggested in [GH#10 - the append should append the end of line, not replacing the syntax in the end of line](https://github.com/joachimdalen/azdevops-pull-request-utils/issues/10)
+  - Added in [PR#11 - Add option to keep appended content](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/11)
 
 ### 🛠️ Maintenance (1)
 
 #### `PullRequestDescription@0.5.0`
 
 - Update dependencies
+  - Changed in [PR#11 - Add option to keep appended content](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/11)
 
 ## 🌟 Contributors
 

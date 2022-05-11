@@ -10,11 +10,13 @@
           {
             "type": "feature",
             "description": "Added option `keepAppendedContent` to always keep the last appended content",
-            "issue": 10
+            "issue": 10,
+            "pullRequest": 11
           },
           {
             "type": "maint",
-            "description": "Update dependencies"
+            "description": "Update dependencies",
+            "pullRequest": 11
           }
         ]
       }

@@ -42,7 +42,7 @@
       "helpMarkDown": "Will keep the content appended from other runs of the task. This will append the current content below the existing content. Applies to action `append`",
       "defaultValue": false,
       "type": "boolean",
-      "visibleRule": "action != append"
+      "visibleRule": "action = append"
     },
     {
       "name": "useDefined",

@@ -17,6 +17,13 @@
   ],
   "pullRequests": [
     {
+      "id": 933969209,
+      "number": 11,
+      "submitter": "joachimdalen",
+      "title": "Add option to keep appended content",
+      "url": "https://github.com/joachimdalen/azdevops-pull-request-utils/pull/11"
+    },
+    {
       "id": 886324202,
       "number": 8,
       "submitter": "joachimdalen",

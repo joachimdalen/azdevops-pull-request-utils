@@ -1,13 +1,31 @@
 # Changelog
 
+## 1.2.0 (2022-05-11)
+
+### 🚀 Features (1)
+
+#### `PullRequestDescription@0.5.0`
+
+- Added option `keepAppendedContent` to always keep the last appended content
+  - Suggested in [GH#10 - the append should append the end of line, not replacing the syntax in the end of line](https://github.com/joachimdalen/azdevops-pull-request-utils/issues/10)
+  - Added in [PR#11 - Add option to keep appended content](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/11)
+
+### 🛠️ Maintenance (1)
+
+#### `PullRequestDescription@0.5.0`
+
+- Update dependencies
+  - Changed in [PR#11 - Add option to keep appended content](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/11)
+
+## 🌟 Contributors
+
+Thank you to the following for contributing to the latest release
+
+- [@CurlyBytes](https://github.com/CurlyBytes)
+
+---
+
 ## 1.1.0 (2022-03-25)
-
-### 🐛 Fixes (1)
-
-#### `PullRequestStatus@0.5.0`
-
-- Fixed an issue where action `Delete` did not load the correct status
-  - Fixed in [PR#8 - Add option to conditionally update status](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/8)
 
 ### 🚀 Features (1)
 
@@ -16,6 +34,13 @@
 - Added new argument `whenState` to control when a status update should be applied
   - Suggested in [GH#7 - Update PullRequestStatus only if the status is fulfilled](https://github.com/joachimdalen/azdevops-pull-request-utils/issues/7)
   - Added in [PR#8 - Add option to conditionally update status](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/8)
+
+### 🐛 Fixes (1)
+
+#### `PullRequestStatus@0.5.0`
+
+- Fixed an issue where action `Delete` did not load the correct status
+  - Fixed in [PR#8 - Add option to conditionally update status](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/8)
 
 ## 🌟 Contributors
 

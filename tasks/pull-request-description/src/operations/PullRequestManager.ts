@@ -3,6 +3,8 @@ import * as tl from 'azure-pipelines-task-lib/task';
 import { EOL } from 'os';
 import { getPullRequestId, getWebApi, VariableResolver } from 'pull-request-core';
 
+import { joinString } from '../utils';
+
 export class PullRequestManager {
   public async process(): Promise<void> {
     const useDefinedPrId = tl.getBoolInput('useDefined');
@@ -86,23 +88,47 @@ export class PullRequestManager {
     if (action !== 'append')
       throw new Error(`${action} is not a know action. Must be replace or append`);
 
+    const keepAppendedContent = tl.getBoolInput('keepAppendedContent');
     const currentPr = await this.getPrDescription(pullRequestId);
-    const oldDescription = currentPr.description;
+    const oldDescription = currentPr.description?.trimEnd();
 
     const matchRegex =
       /^\[\/\/\]: # \(pull-request-description-updater - Anything below this line will be deleted on next pipeline run\. Do not change this line\. Keep an empty line above and below\)$/m;
     const commentSplit =
       '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)';
 
-    if (oldDescription === undefined) return EOL + commentSplit + EOL + EOL + content;
-
-    const matchResult = matchRegex.exec(oldDescription);
-
-    if (matchResult === null) {
-      return oldDescription + EOL + EOL + commentSplit + EOL + EOL + content;
+    if (oldDescription === undefined) {
+      const descriptionWithContent = joinString([EOL + commentSplit + EOL, content]);
+      return descriptionWithContent;
     }
 
-    const originalDescription = oldDescription.substr(0, matchResult.index);
-    return originalDescription + EOL + EOL + commentSplit + EOL + EOL + content;
+    const matchResult = matchRegex.exec(oldDescription);
+    if (matchResult === null) {
+      const descriptionWithOld = joinString([oldDescription, EOL + commentSplit + EOL, content]);
+      return descriptionWithOld;
+    }
+
+    const originalDescription = oldDescription.substring(0, matchResult.index)?.trimEnd();
+    if (keepAppendedContent) {
+      const oldAppended = oldDescription
+        .substring(matchResult.index + commentSplit.length, oldDescription.length)
+        ?.trim();
+      const newDescription = joinString([
+        originalDescription,
+        EOL + commentSplit + EOL,
+        oldAppended,
+        content
+      ]);
+
+      return newDescription;
+    }
+
+    const appenededDescription = joinString([
+      originalDescription,
+      EOL + commentSplit + EOL,
+      content
+    ]);
+
+    return appenededDescription;
   }
 }

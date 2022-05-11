@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "id": 1231461604,
+      "number": 10,
+      "submitter": "CurlyBytes",
+      "title": "the append should append the end of line, not replacing the syntax in the end of line",
+      "url": "https://github.com/joachimdalen/azdevops-pull-request-utils/issues/10"
+    },
+    {
       "id": 1175102696,
       "number": 7,
       "submitter": "knoxi",
@@ -9,6 +16,13 @@
     }
   ],
   "pullRequests": [
+    {
+      "id": 933969209,
+      "number": 11,
+      "submitter": "joachimdalen",
+      "title": "Add option to keep appended content",
+      "url": "https://github.com/joachimdalen/azdevops-pull-request-utils/pull/11"
+    },
     {
       "id": 886324202,
       "number": 8,

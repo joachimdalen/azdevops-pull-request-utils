@@ -4,7 +4,7 @@
   "id": "pull-request-utils-dev",
   "name": "Pull Request Utils - DEV",
   "public": false,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "JoachimDalen",
   "targets": [
     {

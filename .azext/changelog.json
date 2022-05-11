@@ -1,5 +1,28 @@
 [
   {
+    "publishDate": "2022-05-11",
+    "version": "1.2.0",
+    "modules": [
+      {
+        "name": "PullRequestDescription",
+        "version": "0.5.0",
+        "changes": [
+          {
+            "type": "feature",
+            "description": "Added option `keepAppendedContent` to always keep the last appended content",
+            "issue": 10,
+            "pullRequest": 11
+          },
+          {
+            "type": "maint",
+            "description": "Update dependencies",
+            "pullRequest": 11
+          }
+        ]
+      }
+    ]
+  },
+  {
     "publishDate": "2022-03-25",
     "version": "1.1.0",
     "modules": [

@@ -3,6 +3,7 @@ import * as path from 'path';
 
 import { getMock } from './utils/apiMock';
 import mockery = require('mockery');
+import { EOL } from 'os';
 
 import { joinString } from '../utils';
 
@@ -12,18 +13,17 @@ const mock = getMock(
   {
     title: 'My first pr',
     description: joinString([
+      '# Hello' + EOL + 'This is my long PR description',
       '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)',
-
       'This is the pr'
     ])
   },
   { title: 'My first pr' }
 );
 
-tr.setInput('action', 'view');
-tr.setInput('content', 'd');
-tr.setInput('outputVariable', 'PullRequest.DescriptionContent');
-tr.setInput('isOutput', 'true');
+tr.setInput('action', 'append');
+tr.setInput('keepAppendedContent', 'true');
+tr.setInput('content', 'This is the content from the second run');
 
 tr.registerMock('azure-devops-node-api', mock);
 

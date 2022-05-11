@@ -10,7 +10,7 @@
   "author": "Joachim Dalen",
   "version": {
     "Major": 0,
-    "Minor": 4,
+    "Minor": 5,
     "Patch": 0
   },
   "instanceNameFormat": "$(Action)",
@@ -35,6 +35,13 @@
       "label": "Content",
       "helpMarkDown": "The content to append or replace original description with. Required when action is `append` or `replace`. For Markdown syntax, see [Syntax guidance for basic Markdown usage](http://go.microsoft.com/fwlink/?LinkId=823918) **Supports usage of variables.**",
       "visibleRule": "action != view"
+    },
+    {
+      "name": "keepAppendedContent",
+      "label": "Keep appended content",
+      "helpMarkDown": "Will keep the content appended from other runs of the task. This will append the current content below the existing content",
+      "defaultValue": false,
+      "type": "boolean"
     },
     {
       "name": "useDefined",

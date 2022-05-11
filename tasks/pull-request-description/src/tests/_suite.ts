@@ -1,13 +1,14 @@
 import * as assert from 'assert';
 import * as ttm from 'azure-pipelines-task-lib/mock-test';
-import * as path from 'path';
-import tl = require('azure-pipelines-task-lib/task');
 import { EOL } from 'os';
+import * as path from 'path';
+
+import { joinTestString } from './utils/utils';
 describe('PullRequestDescription Suite', function () {
   this.retries(2);
 
   before(function () {
-    process.env['SYSTEM_TEAMFOUNDATIONCOLLECTIONURI'] = 'http://localhost/someproject';
+    process.env['SYSTEM_TEAMFOUNDATIONCOLLECTIONURI'] = 'http:localhost/someproject';
     process.env['BUILD_REPOSITORY_ID'] = 'a5253ab2-00bf-4ce9-824a-d3449b1f49e1';
     process.env['SYSTEM_ACCESSTOKEN'] = '123';
     process.env['SYSTEM_PULLREQUEST_PULLREQUESTID'] = '10';
@@ -59,11 +60,11 @@ describe('PullRequestDescription Suite', function () {
   it('should append content on first run when no description is set', function () {
     const taskPath = path.join(__dirname, 'FirstIterationAppendNoDescription.js');
     const tr: ttm.MockTestRunner = new ttm.MockTestRunner(taskPath);
-    const expected =
-      '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)' +
+    const expected = joinTestString([
       EOL +
-      EOL +
-      'This is the pr';
+        '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)',
+      'This is the pr'
+    ]);
     tr.run();
 
     assert(tr.succeeded);
@@ -72,29 +73,25 @@ describe('PullRequestDescription Suite', function () {
   it('should append content on first run when description is set', function () {
     const taskPath = path.join(__dirname, 'FirstIterationAppendDescription.js');
     const tr: ttm.MockTestRunner = new ttm.MockTestRunner(taskPath);
-    const expected =
-      'This is my long pr description' +
-      EOL +
-      'It has some good content' +
-      EOL +
-      EOL +
-      '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)' +
-      EOL +
-      EOL +
-      'This is the pr';
+    const expected = joinTestString([
+      'This is my long pr description' + EOL + 'It has some good content',
+      '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)',
+      'This is the pr'
+    ]);
     tr.run();
 
     assert(tr.succeeded);
     assert(tr.stdOutContained(expected));
   });
+
   it('should replace appended content on second run when no original description is set', function () {
     const taskPath = path.join(__dirname, 'SecondIterationAppendNoDescription.js');
     const tr: ttm.MockTestRunner = new ttm.MockTestRunner(taskPath);
-    const expected =
-      '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)' +
+    const expected = joinTestString([
       EOL +
-      EOL +
-      'This is the content from the second run';
+        '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)',
+      'This is the content from the second run'
+    ]);
     tr.run();
 
     assert(tr.succeeded);
@@ -104,11 +101,10 @@ describe('PullRequestDescription Suite', function () {
   it('should replace appended content on second run when no original description is set', function () {
     const taskPath = path.join(__dirname, 'SecondIterationAppendNoDescription.js');
     const tr: ttm.MockTestRunner = new ttm.MockTestRunner(taskPath);
-    const expected =
-      '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)' +
-      EOL +
-      EOL +
-      'This is the content from the second run';
+    const expected = joinTestString([
+      '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)',
+      'This is the content from the second run'
+    ]);
     tr.run();
 
     assert(tr.succeeded);
@@ -118,22 +114,33 @@ describe('PullRequestDescription Suite', function () {
   it('should replace only appended content on second run when original description is set', function () {
     const taskPath = path.join(__dirname, 'SecondIterationAppendDescription.js');
     const tr: ttm.MockTestRunner = new ttm.MockTestRunner(taskPath);
-    const expected =
-      '# Hello' +
-      EOL +
-      'This is my long PR description' +
-      EOL +
-      EOL +
-      EOL +
-      '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)' +
-      EOL +
-      EOL +
-      'This is the content from the second run';
+    const expected = joinTestString([
+      '# Hello' + EOL + 'This is my long PR description',
+      '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)',
+      'This is the content from the second run'
+    ]);
     tr.run();
 
     assert(tr.succeeded);
     assert(tr.stdOutContained(expected));
     assert(tr.stdOutContained('This is the pr') === false);
+  });
+
+  it('should append to appended content on second run when original description is set and option is defined', function () {
+    const taskPath = path.join(__dirname, 'MultipleIterationsOfAppendKeepsOld.js');
+    const tr: ttm.MockTestRunner = new ttm.MockTestRunner(taskPath);
+    const expected = joinTestString([
+      '# Hello' + EOL + 'This is my long PR description',
+      '[//]: # (pull-request-description-updater - Anything below this line will be deleted on next pipeline run. Do not change this line. Keep an empty line above and below)',
+      'This is the pr' + EOL + 'This is the content from the second run'
+    ]);
+
+    tr.run();
+
+    assert(tr.succeeded);
+    assert(tr.stdOutContained(expected));
+    assert(tr.stdOutContained('This is the pr'));
+    assert(tr.stdOutContained('This is the content from the second run'));
   });
 
   it('should write description to variable', function () {

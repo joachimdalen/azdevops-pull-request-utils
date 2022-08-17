@@ -1,6 +1,35 @@
 # Changelog
 
+## 1.2.1 (2022-08-18)
+
+### 🛠️ Maintenance (4)
+
+#### `PullRequestDescription@0.5.1`
+
+- Update dependencies
+
+#### `PullRequestComments@0.4.1`
+
+- Update dependencies
+
+#### `PullRequestStatus@0.5.1`
+
+- Update dependencies
+
+#### `PullRequestTags@0.4.1`
+
+- Update dependencies
+
+---
+
 ## 1.2.0 (2022-05-11)
+
+### 🛠️ Maintenance (1)
+
+#### `PullRequestDescription@0.5.0`
+
+- Update dependencies
+  - Changed in [PR#11 - Add option to keep appended content](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/11)
 
 ### 🚀 Features (1)
 
@@ -9,13 +38,6 @@
 - Added option `keepAppendedContent` to always keep the last appended content
   - Suggested in [GH#10 - the append should append the end of line, not replacing the syntax in the end of line](https://github.com/joachimdalen/azdevops-pull-request-utils/issues/10)
   - Added in [PR#11 - Add option to keep appended content](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/11)
-
-### 🛠️ Maintenance (1)
-
-#### `PullRequestDescription@0.5.0`
-
-- Update dependencies
-  - Changed in [PR#11 - Add option to keep appended content](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/11)
 
 ## 🌟 Contributors
 
@@ -285,14 +307,6 @@ Thank you to the following for contributing to the latest release
 
 ## 0.4.2 (2021-01-27)
 
-### 🐛 Fixes (2)
-
-#### `PullRequestComments@0.2.0`
-
-- Fixed `skipIfCommentExists` not working properly. It was dumb previously and only checked the content of the comment. It is now updated to add a hidden identifier to the comment to properly identify if it exists. If you use multiple tasks, ensure `commentId` is set as a unique value for each task.
-
-- Fixed some configuration options not showing in the editor
-
 ### 🚀 Features (3)
 
 #### `PullRequestDescription@0.1.1`
@@ -304,6 +318,14 @@ Thank you to the following for contributing to the latest release
 - Added option `commentId`
 
 - Added option `action`, you can now create or update comments.
+
+### 🐛 Fixes (2)
+
+#### `PullRequestComments@0.2.0`
+
+- Fixed `skipIfCommentExists` not working properly. It was dumb previously and only checked the content of the comment. It is now updated to add a hidden identifier to the comment to properly identify if it exists. If you use multiple tasks, ensure `commentId` is set as a unique value for each task.
+
+- Fixed some configuration options not showing in the editor
 
 ---
 
@@ -351,6 +373,12 @@ Thank you to the following for contributing to the latest release
 
 - Updated dependencies
 
+### 🚀 Features (1)
+
+#### `PullRequestStatus@0.0.2`
+
+- Added PullRequestStatus. Create custom statuses that can be used in policies. See `README` for more information.
+
 ### 📝 Documentation (2)
 
 #### `PullRequestComments@0.1.11`
@@ -360,12 +388,6 @@ Thank you to the following for contributing to the latest release
 #### `PullRequestTags@0.1.6`
 
 - Updated docs
-
-### 🚀 Features (1)
-
-#### `PullRequestStatus@0.0.2`
-
-- Added PullRequestStatus. Create custom statuses that can be used in policies. See `README` for more information.
 
 ---
 

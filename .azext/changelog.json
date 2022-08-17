@@ -1,5 +1,51 @@
 [
   {
+    "publishDate": "2022-08-18",
+    "version": "1.2.1",
+    "modules": [
+      {
+        "name": "PullRequestDescription",
+        "version": "0.5.1",
+        "changes": [
+          {
+            "type": "maint",
+            "description": "Update dependencies"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestComments",
+        "version": "0.4.1",
+        "changes": [
+          {
+            "type": "maint",
+            "description": "Update dependencies"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestStatus",
+        "version": "0.5.1",
+        "changes": [
+          {
+            "type": "maint",
+            "description": "Update dependencies"
+          }
+        ]
+      },
+      {
+        "name": "PullRequestTags",
+        "version": "0.4.1",
+        "changes": [
+          {
+            "type": "maint",
+            "description": "Update dependencies"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "publishDate": "2022-05-11",
     "version": "1.2.0",
     "modules": [

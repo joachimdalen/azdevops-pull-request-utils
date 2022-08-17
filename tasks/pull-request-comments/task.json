@@ -4,8 +4,8 @@
   "name": "PullRequestComments",
   "friendlyName": "Pull Request Comments",
   "description": "Add comments to a pull request",
-  "helpMarkDown": "[Learn more about this task](https://docs.devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-comments)",
-  "helpUrl": "https://docs.devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-comments",
+  "helpMarkDown": "[Learn more about this task](https://devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-comments)",
+  "helpUrl": "https://devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-comments",
   "category": "Utility",
   "author": "Joachim Dalen",
   "version": {

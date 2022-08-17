@@ -33,6 +33,12 @@ export class PullRequestManager {
       throw new Error('Comment content is not set');
     }
 
+    if (tl.getInput('type')?.toLowerCase() === 'system') {
+      tl.warning(
+        'The type parameter is deprecated. Please remove it from your task definition. Continuing to use it might lead to unexpected results'
+      );
+    }
+
     if (action === undefined) action = 'create';
 
     if (['create', 'createorupdate', 'update'].includes(action) === false) {

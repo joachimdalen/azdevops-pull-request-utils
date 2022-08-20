@@ -82,7 +82,7 @@
     },
     {
       "name": "type",
-      "label": "Comment Type",
+      "label": "Comment Type (Deprecated)",
       "type": "pickList",
       "helpMarkDown": "The type of comment. `Text` represents a regular user comment while `System` indicates a system message",
       "defaultValue": "Text",

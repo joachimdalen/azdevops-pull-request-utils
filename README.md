@@ -11,7 +11,7 @@
   <p align="center">
     An extensions to manage pull requests. Includes posting comments on pull requests, checking if tags are assigned, assigning tags, updating the description and creating statuses 
     <br />
-    <a href="https://docs.devops-extensions.dev/docs/extensions/pull-request-utils"><strong>Explore the docs »</strong></a>
+    <a href="https://devops-extensions.dev/docs/extensions/pull-request-utils"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://marketplace.visualstudio.com/items?itemName=joachimdalen.pull-request-utils">View Extension</a>

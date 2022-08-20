@@ -4,14 +4,14 @@
   "name": "PullRequestDescription",
   "friendlyName": "Pull Request Description",
   "description": "Update pull request descriptions during pipeline runs",
-  "helpMarkDown": "[Learn more about this task](https://docs.devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-description)",
-  "helpUrl": "https://docs.devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-description",
+  "helpMarkDown": "[Learn more about this task](https://devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-description)",
+  "helpUrl": "https://devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-description",
   "category": "Utility",
   "author": "Joachim Dalen",
   "version": {
     "Major": 0,
     "Minor": 5,
-    "Patch": 0
+    "Patch": 1
   },
   "instanceNameFormat": "$(Action)",
   "inputs": [

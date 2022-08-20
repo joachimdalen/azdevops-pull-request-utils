@@ -6,7 +6,7 @@
   <p align="center">
 Pull Request Utils is a collection of tasks to interact with pull requests from your pipelines.
     <br />
-    <a href="https://docs.devops-extensions.dev/docs/extensions/pull-request-utils"><strong>Explore the docs »</strong></a>
+    <a href="https://devops-extensions.dev/docs/extensions/pull-request-utils"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://marketplace.visualstudio.com/items?itemName=joachimdalen.pull-request-utils">View Extension</a>

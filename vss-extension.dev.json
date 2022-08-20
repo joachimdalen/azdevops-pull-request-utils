@@ -37,7 +37,7 @@
   },
   "links": {
     "getstarted": {
-      "uri": "https://docs.devops-extensions.dev/docs/extensions/pull-request-utils"
+      "uri": "https://devops-extensions.dev/docs/extensions/pull-request-utils"
     },
     "repository": {
       "uri": "https://github.com/joachimdalen/azdevops-pull-request-utils"
@@ -46,7 +46,7 @@
       "uri": "https://github.com/joachimdalen/azdevops-pull-request-utils/issues"
     },
     "privacypolicy": {
-      "uri": "https://docs.devops-extensions.dev/docs/privacy"
+      "uri": "https://devops-extensions.dev/docs/privacy"
     },
     "license": {
       "uri": "https://github.com/joachimdalen/azdevops-pull-request-utils/blob/master/LICENSE"

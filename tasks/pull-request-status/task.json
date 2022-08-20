@@ -5,13 +5,13 @@
   "friendlyName": "Pull Request Status",
   "description": "Define custom pull request statuses",
   "helpMarkDown": "PullRequestStatus allows you to create custom statuses for your pull request. See the [status policy](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy) docs for more infomation.",
-  "helpUrl": "https://docs.devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-status",
+  "helpUrl": "https://devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-status",
   "category": "Utility",
   "author": "Joachim Dalen",
   "version": {
     "Major": 0,
     "Minor": 5,
-    "Patch": 0
+    "Patch": 1
   },
   "instanceNameFormat": "$(Action)",
   "inputs": [

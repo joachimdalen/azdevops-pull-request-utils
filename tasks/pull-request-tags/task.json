@@ -4,14 +4,14 @@
   "name": "PullRequestTags",
   "friendlyName": "Pull Request Tags",
   "description": "Manage labels for a pull request. Gives the ability to manage pull request tags, or check if a tag is assigned.",
-  "helpMarkDown": "[Learn more about this task](https://docs.devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-tags)",
-  "helpUrl": "https://docs.devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-tags",
+  "helpMarkDown": "[Learn more about this task](https://devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-tags)",
+  "helpUrl": "https://devops-extensions.dev/docs/extensions/pull-request-utils/tasks/pull-request-tags",
   "category": "Utility",
   "author": "Joachim Dalen",
   "version": {
     "Major": 0,
     "Minor": 4,
-    "Patch": 0
+    "Patch": 1
   },
   "instanceNameFormat": "$(Action)",
   "inputs": [

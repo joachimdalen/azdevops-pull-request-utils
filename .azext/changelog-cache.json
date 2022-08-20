@@ -1,6 +1,20 @@
 {
   "issues": [
     {
+      "id": 1343469705,
+      "number": 15,
+      "submitter": "teuciont",
+      "title": "Azure classic release \"Pull Request Status\" task: Unable to set action to Update",
+      "url": "https://github.com/joachimdalen/azdevops-pull-request-utils/issues/15"
+    },
+    {
+      "id": 1341413671,
+      "number": 13,
+      "submitter": "knoxi",
+      "title": "PullRequest Comment Task don't set proper status",
+      "url": "https://github.com/joachimdalen/azdevops-pull-request-utils/issues/13"
+    },
+    {
       "id": 1231461604,
       "number": 10,
       "submitter": "CurlyBytes",
@@ -16,6 +30,13 @@
     }
   ],
   "pullRequests": [
+    {
+      "id": 1029152486,
+      "number": 14,
+      "submitter": "joachimdalen",
+      "title": "Deprecate system comment type",
+      "url": "https://github.com/joachimdalen/azdevops-pull-request-utils/pull/14"
+    },
     {
       "id": 933969209,
       "number": 11,

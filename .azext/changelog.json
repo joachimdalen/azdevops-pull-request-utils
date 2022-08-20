@@ -43,7 +43,8 @@
           {
             "type": "fix",
             "description": "Fix release ui crashing when setting the status to `Update`",
-            "issue": 15
+            "issue": 15,
+            "pullRequest": 16
           }
         ]
       },

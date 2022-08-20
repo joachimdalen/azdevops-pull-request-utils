@@ -31,6 +31,13 @@
   ],
   "pullRequests": [
     {
+      "id": 1031714364,
+      "number": 16,
+      "submitter": "joachimdalen",
+      "title": "Fix release ui crashing when using PullRequestStatus",
+      "url": "https://github.com/joachimdalen/azdevops-pull-request-utils/pull/16"
+    },
+    {
       "id": 1029152486,
       "number": 14,
       "submitter": "joachimdalen",

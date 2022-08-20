@@ -36,6 +36,7 @@
 
 - Fix release ui crashing when setting the status to `Update`
   - Reported in [GH#15 - Azure classic release "Pull Request Status" task: Unable to set action to Update](https://github.com/joachimdalen/azdevops-pull-request-utils/issues/15)
+  - Fixed in [PR#16 - Fix release ui crashing when using PullRequestStatus](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/16)
 
 ## 🌟 Contributors
 

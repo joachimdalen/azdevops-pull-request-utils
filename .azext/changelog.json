@@ -9,7 +9,8 @@
         "changes": [
           {
             "type": "maint",
-            "description": "Update dependencies"
+            "description": "Update dependencies",
+            "pullRequest": 14
           }
         ]
       },
@@ -19,17 +20,31 @@
         "changes": [
           {
             "type": "maint",
-            "description": "Update dependencies"
+            "description": "Update dependencies",
+            "pullRequest": 14
+          },
+          {
+            "type": "fix",
+            "description": "Deprecate the `type` option. System comments are causing issues and not really supported",
+            "issue": 13,
+            "pullRequest": 14
           }
         ]
       },
       {
         "name": "PullRequestStatus",
-        "version": "0.5.1",
+        "version": "0.5.2",
         "changes": [
           {
             "type": "maint",
-            "description": "Update dependencies"
+            "description": "Update dependencies",
+            "pullRequest": 14
+          },
+          {
+            "type": "fix",
+            "description": "Fix release ui crashing when setting the status to `Update`",
+            "issue": 15,
+            "pullRequest": 16
           }
         ]
       },
@@ -39,7 +54,8 @@
         "changes": [
           {
             "type": "maint",
-            "description": "Update dependencies"
+            "description": "Update dependencies",
+            "pullRequest": 14
           }
         ]
       }

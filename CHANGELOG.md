@@ -7,18 +7,43 @@
 #### `PullRequestDescription@0.5.1`
 
 - Update dependencies
+  - Changed in [PR#14 - Deprecate system comment type](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/14)
 
 #### `PullRequestComments@0.4.1`
 
 - Update dependencies
+  - Changed in [PR#14 - Deprecate system comment type](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/14)
 
-#### `PullRequestStatus@0.5.1`
+#### `PullRequestStatus@0.5.2`
 
 - Update dependencies
+  - Changed in [PR#14 - Deprecate system comment type](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/14)
 
 #### `PullRequestTags@0.4.1`
 
 - Update dependencies
+  - Changed in [PR#14 - Deprecate system comment type](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/14)
+
+### 🐛 Fixes (2)
+
+#### `PullRequestComments@0.4.1`
+
+- Deprecate the `type` option. System comments are causing issues and not really supported
+  - Reported in [GH#13 - PullRequest Comment Task don't set proper status](https://github.com/joachimdalen/azdevops-pull-request-utils/issues/13)
+  - Fixed in [PR#14 - Deprecate system comment type](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/14)
+
+#### `PullRequestStatus@0.5.2`
+
+- Fix release ui crashing when setting the status to `Update`
+  - Reported in [GH#15 - Azure classic release "Pull Request Status" task: Unable to set action to Update](https://github.com/joachimdalen/azdevops-pull-request-utils/issues/15)
+  - Fixed in [PR#16 - Fix release ui crashing when using PullRequestStatus](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/16)
+
+## 🌟 Contributors
+
+Thank you to the following for contributing to the latest release
+
+- [@teuciont](https://github.com/teuciont)
+- [@knoxi](https://github.com/knoxi)
 
 ---
 
@@ -49,6 +74,13 @@ Thank you to the following for contributing to the latest release
 
 ## 1.1.0 (2022-03-25)
 
+### 🐛 Fixes (1)
+
+#### `PullRequestStatus@0.5.0`
+
+- Fixed an issue where action `Delete` did not load the correct status
+  - Fixed in [PR#8 - Add option to conditionally update status](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/8)
+
 ### 🚀 Features (1)
 
 #### `PullRequestStatus@0.5.0`
@@ -56,13 +88,6 @@ Thank you to the following for contributing to the latest release
 - Added new argument `whenState` to control when a status update should be applied
   - Suggested in [GH#7 - Update PullRequestStatus only if the status is fulfilled](https://github.com/joachimdalen/azdevops-pull-request-utils/issues/7)
   - Added in [PR#8 - Add option to conditionally update status](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/8)
-
-### 🐛 Fixes (1)
-
-#### `PullRequestStatus@0.5.0`
-
-- Fixed an issue where action `Delete` did not load the correct status
-  - Fixed in [PR#8 - Add option to conditionally update status](https://github.com/joachimdalen/azdevops-pull-request-utils/pull/8)
 
 ## 🌟 Contributors
 
@@ -307,6 +332,14 @@ Thank you to the following for contributing to the latest release
 
 ## 0.4.2 (2021-01-27)
 
+### 🐛 Fixes (2)
+
+#### `PullRequestComments@0.2.0`
+
+- Fixed `skipIfCommentExists` not working properly. It was dumb previously and only checked the content of the comment. It is now updated to add a hidden identifier to the comment to properly identify if it exists. If you use multiple tasks, ensure `commentId` is set as a unique value for each task.
+
+- Fixed some configuration options not showing in the editor
+
 ### 🚀 Features (3)
 
 #### `PullRequestDescription@0.1.1`
@@ -318,14 +351,6 @@ Thank you to the following for contributing to the latest release
 - Added option `commentId`
 
 - Added option `action`, you can now create or update comments.
-
-### 🐛 Fixes (2)
-
-#### `PullRequestComments@0.2.0`
-
-- Fixed `skipIfCommentExists` not working properly. It was dumb previously and only checked the content of the comment. It is now updated to add a hidden identifier to the comment to properly identify if it exists. If you use multiple tasks, ensure `commentId` is set as a unique value for each task.
-
-- Fixed some configuration options not showing in the editor
 
 ---
 
